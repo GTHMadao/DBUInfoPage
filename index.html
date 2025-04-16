@@ -175,7 +175,7 @@
       const X = rebirth;
       const Amount = 14000000;
       const brolyAfter = Math.floor(
-        Amount * (Math.pow(X * 0.6 + 1, 2.4) + Math.pow(1.07, clamp(2 * Math.pow(X, 0.3), 0, 5000)))
+        Amount * (Math.pow(newRebirth * 0.6 + 1, 2.4) + Math.pow(1.07, clamp(2 * Math.pow(newRebirth, 0.3), 0, 5000)))
       );
   
       const requirement = rebirth * 1_000_000 + 500_000;

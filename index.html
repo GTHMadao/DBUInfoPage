@@ -154,7 +154,7 @@
       if (isNaN(rebirth) || rebirth < 0 || value.includes(".")) {
         const msg = "Please enter a valid number.";
         output.textContent = msg;
-        combinedOutput.innerHTML = `<div>${msg}</div><div>${msg}</div>`;
+        combinedOutput.innerHTML = `<div>${msg}</div>`;
         requirementOutput.textContent = msg;
         return;
       }

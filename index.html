@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DBU Rebirth Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: url('https://tr.rbxcdn.com/180DAY-6409b4530cc879b6c4692b5a6118006d/768/432/Image/Webp/noFilter') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    h1, .label, .output-box {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 64px;
+    }
+
+    .label {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 28px;
+      width: 260px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .output-box {
+      margin-top: 10px;
+      font-size: 28px;
+      color: #000;
+    }
+
+    .note {
+      font-size: 20px;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    .blue-box {
+      background-color: rgba(103, 144, 255, 0.8);
+      font-size: 16px;
+      color: white;
+      margin-top: 0; /* So it touches the element above */
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>DBU REBIRTH CALCULATOR</h1>
+  <div class="label">ENTER YOUR CURRENT REBIRTHS</div>
+  <input id="rebirthInput" type="number" placeholder="Enter a number..." />
+
+  <div id="output" class="output-box">You will have XXX rebirths after the update</div>
+  <div id="bonusInfoTop" class="output-box blue-box">*Subjected to change</div>
+
+  <div id="combinedOutput" class="output-box">
+    <div>You are currently gaining XXX stats from Broly.</div>
+    <div>After the update, you will gain XXX stats from Broly.</div>
+  </div>
+  <div id="bonusInfo" class="output-box blue-box">*Subjected to change</div>
+  <div id="requirementOutput" class="output-box">Your current reb requirement is XXX</div>
+  <div class="output-box note">
+    Enter 0 for default statistics<br>
+    Broly base rewards will be changed from 80,000 to 14,000,000 in the update.
+  </div>
+  <div id="bonusInfoTop" class="output-box blue-box">*Subjected to change</div>
+
+  <script>
+    const input = document.getElementById("rebirthInput");
+    const output = document.getElementById("output");
+    const combinedOutput = document.getElementById("combinedOutput");
+    const requirementOutput = document.getElementById("requirementOutput");
+
+    const formatScientific = val => val.toExponential(2);
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return;
+
+      const value = input.value.trim();
+      const rebirth = parseInt(value, 10);
+
+      if (isNaN(rebirth) || rebirth < 0 || value.includes(".")) {
+        const msg = "Please enter a valid number.";
+        output.textContent = msg;
+        combinedOutput.innerHTML = `<div>${msg}</div><div>${msg}</div>`;
+        requirementOutput.textContent = msg;
+        return;
+      }
+
+      const newRebirth = Math.floor(Math.log(0.02 * Math.pow(0.3 * rebirth, 2) + 1) / Math.log(1.04));
+      const brolyBefore = rebirth * 0.5 * 81000 + 81000;
+      const logPower = newRebirth * Math.log10(1.02);
+      const logBase = Math.log10(Math.pow(newRebirth + 1, 1.5));
+      const totalLog = Math.log10(Math.pow(10, logBase) + Math.pow(10, logPower) - 1) + Math.log10(14000000);
+      const brolyAfter = Math.floor(Math.pow(10, totalLog));
+      const requirement = rebirth * 1_000_000 + 500_000;
+
+      output.innerHTML = `You will have <strong>${newRebirth}</strong> rebirths after the update`;
+      combinedOutput.innerHTML = `
+        <div>You are currently gaining <strong>${formatScientific(brolyBefore)}</strong> stats from Broly.</div>
+        <div>After the update, with <strong>${newRebirth} rebirths</strong>, you will gain <strong>${formatScientific(brolyAfter)}</strong> stats from Broly.</div>`;
+      requirementOutput.innerHTML = `Your current reb requirement is <strong>${requirement.toLocaleString()}</strong>`;
+    });
+  </script>
+</body>
+</html>

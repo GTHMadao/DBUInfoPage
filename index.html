@@ -131,10 +131,12 @@
     <div>After the update, you will gain XXX stats from Broly.</div>
   </div>
   <div id="bonusInfo" class="output-box blue-box">*Subjected to change</div>
-  <div id="requirementOutput" class="output-box">Your current reb requirement is XXX</div>
+  <div id="requirementOutput" class="output-box">Your current reb requirement is XXX<br>
+    You will need to farm XXX Broly to rebirth.
+  </div>
   <div class="output-box note">
     Enter 0 for default statistics<br>
-    Broly base rewards will be changed from 80,000 to 28,000,000 in the update.
+    Broly base rewards will be changed from 81,000 to 28,000,000 in the update.
   </div>
 
   <script>
@@ -175,7 +177,11 @@
       combinedOutput.innerHTML = `
         <div>You are currently gaining <strong>${formatScientific(brolyBefore)}</strong> stats from Broly.</div>
         <div>After the update, with <strong>${newRebirth} rebirths</strong>, you will gain <strong>${formatScientific(brolyAfter)}</strong> stats from Broly.</div>`;
-      requirementOutput.innerHTML = `Your current reb requirement is <strong>${requirement.toLocaleString()}</strong>`;
+        requirementOutput.innerHTML = `
+        Your current reb requirement is <strong>${requirement.toLocaleString()}</strong><br>
+        You will need to farm <strong>${Math.ceil(requirement / brolyBefore)}</strong> Broly to rebirth.
+      `;
+
     });
   </script>
 </body>

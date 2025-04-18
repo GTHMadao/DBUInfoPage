@@ -2,193 +2,159 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta property="og:title" content="DBU Rebirth Calculator" />
-  <meta property="og:description" content="Calculate your rebirths before and after the DBU update." />
-  <meta property="og:image" content="https://tr.rbxcdn.com/180DAY-6409b4530cc879b6c4692b5a6118006d/768/432/Image/Webp/noFilter" />
-  <meta property="og:url" content="https://gthmadao.github.io/DBURebCalculator/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <title>DBU Rebirth Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DBU Max Rebirth Calculator</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start;
-      background: url('https://tr.rbxcdn.com/180DAY-6409b4530cc879b6c4692b5a6118006d/768/432/Image/Webp/noFilter') no-repeat center center fixed;
-      background-size: cover;
+      background-color: #111;
       font-family: Arial, sans-serif;
-      padding: 1rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
     }
 
     body::before {
       content: "";
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      width: 150vw;
-      height: 150vh;
-      background-color: rgba(0, 0, 0, 0.5); 
-      z-index: -1; 
+      width: 100%;
+      height: 100%;
+      background-image: url('https://tr.rbxcdn.com/180DAY-6409b4530cc879b6c4692b5a6118006d/768/432/Image/Webp/noFilter'); /* You can replace this */
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.3); /* Dark overlay */
+      z-index: -1;
     }
 
-    h1, .label, .output-box {
-      background-color: rgba(0, 0, 0, 0.3);
-      color: white;
-      text-shadow: 0 0 26px rgb(0, 0, 0);
-      padding: 0.6rem 0rem;
-      border-radius: 8px;
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
       text-align: center;
-      width: 100%;
-      max-width: 800px;
+      z-index: 1;
     }
 
     h1 {
-      font-size: 4vw;
-      background-color: rgba(255, 255, 255, 0);
-      margin: 1rem 0;
+      margin: 0;
+      font-size: 4rem;
+      color: #ffffff;
+      text-shadow: 0px 0px 26px rgba(0, 0, 0, 0.7);
     }
 
-    .label {
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin: 1rem 0 0.5rem;
-    }
-
-    input[type="number"] {
-      padding: 0.8rem;
-      font-size: 1.5rem;
-      width: 80%;
-      max-width: 300px;
-      border: 2px solid #ccc;
+    input[type="text"] {
+      padding: 0.75rem 1rem;
+      font-size: 1.1rem;
       border-radius: 8px;
+      border: none;
       outline: none;
-      margin-bottom: 1rem;
+      width: 250px;
     }
 
-    .output-box {
-      margin-top: 0.8rem;
-      font-size: 1.5rem;
-      line-height: 1.4;
-      word-wrap: break-word;
-    }
-
-    .note {
-      font-size: 1.2rem;
-      margin-top: 0.8rem;
-      font-weight: bold;
-    }
-
-    .blue-box {
-      background-color: rgba(103, 144, 255, 0.5);
-      font-size: 1rem;
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      background-color: #00ac17;
       color: white;
-      margin-top: 0;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.3s;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 10vw;
-      }
-
-      .label {
-        font-size: 1.4rem;
-      }
-
-      input[type="number"] {
-        width: 90%;
-        font-size: 1.3rem;
-      }
-
-      .output-box {
-        font-size: 1.2rem;
-      }
-
-      .note {
-        font-size: 1rem;
-      }
+    button:hover {
+      background-color: #007c1b;
+      transform: scale(1.1);
     }
-  </style>
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+
+    .result {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: #00ffcc;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .notation-info {
+      color: #ccc;
+      font-size: 0.95rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+    }
+</style>
+
+  
 </head>
 <body>
-  <h1>DBU REBIRTH CALCULATOR</h1>
-  <div class="label">ENTER YOUR CURRENT REBIRTHS</div>
-  <input id="rebirthInput" type="number" placeholder="Enter a number..." />
-
-  <div id="output" class="output-box">You will have XXX rebirths after the update</div>
-  <div id="bonusInfoTop" class="output-box blue-box">*Subjected to change</div>
-
-  <div id="combinedOutput" class="output-box">
-    <div>You are currently gaining XXX stats from Broly.</div>
-    <div>After the update, you will gain XXX stats from Broly.</div>
+  <div class="container">
+    <h1>DBU MAX REBIRTH<br />CALCULATOR</h1>
+    <div class="notation-info" id="notationInfo"></div>
+    <input id="powerInput" type="text" placeholder="Enter your current stats" />
+    <input id="rebirthRequirement" type="text" placeholder="Enter your rebirth requirement" />
+    <button id="calculateBtn">MAX REBIRTH</button>
+    <div class="result" id="resultText">You will get X rebirth</div>
+    <div class="notation-info">
+      The max rebirth formula is:
+      <span style="display: block; margin-top: 4px; font-family: 'Courier New', monospace;">
+        Amount of Rebirths = log<sub>0.5</sub>(Rebirth Requirement / Stats)
+      </span>
+    </div>
+    
   </div>
-  <div id="bonusInfo" class="output-box blue-box">*Subjected to change</div>
-  <div id="requirementOutput" class="output-box">Your current reb requirement is XXX<br>
-    You will need to farm XXX Broly to rebirth.
-  </div>
-  <div class="output-box note">
-    Enter 0 for default statistics<br>
-    Broly base rewards will be changed from 81,000 to 28,000,000 in the update.
-  </div>
-
-  <div style="margin-top: 2rem; color: white; text-shadow: 0 0 10px black; font-weight: bold; text-align: center;">
-    Made by Madao<br>
-    (send me robux pls 🙏)
-  </div>
-  
-  
 
   <script>
-    const input = document.getElementById("rebirthInput");
-    const output = document.getElementById("output");
-    const combinedOutput = document.getElementById("combinedOutput");
-    const requirementOutput = document.getElementById("requirementOutput");
-  
-    const formatScientific = val => val.toExponential(2);
-  
-    input.addEventListener("keydown", (e) => {
-      if (e.key !== "Enter") return;
-  
-      const value = input.value.trim();
-      const rebirth = parseInt(value, 10);
-  
-      if (isNaN(rebirth) || rebirth < 0 || value.includes(".")) {
-        const msg = "Please enter a valid number.";
-        output.textContent = msg;
-        combinedOutput.innerHTML = `<div>${msg}</div>`;
-        requirementOutput.textContent = msg;
-        return;
-      }
-  
-      const newRebirth = Math.floor(Math.log(0.02 * Math.pow(0.3 * rebirth, 2) + 1) / Math.log(1.04));
-      const brolyBefore = rebirth * 0.5 * 81000 + 81000;
-  
-      const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
-      const X = rebirth;
-      const Amount = 7500000;
-      const brolyAfter = Math.floor(
-        Amount * (Math.pow(newRebirth * 0.6 + 1, 2.4) + Math.pow(1.07, clamp(2 * Math.pow(newRebirth, 0.3), 0, 5000)))
-      );
-  
-      const requirement = rebirth * 1_000_000 + 500_000;
-  
-      output.innerHTML = `You will have <strong>${newRebirth}</strong> rebirths after the update`;
-      combinedOutput.innerHTML = `
-        <div>You are currently gaining <strong>${formatScientific(brolyBefore)}</strong> stats from Broly.</div>
-        <div>After the update, with <strong>${newRebirth} rebirths</strong>, you will gain <strong>${formatScientific(brolyAfter)}</strong> stats from Broly.</div>`;
-        requirementOutput.innerHTML = `
-        Your current reb requirement is <strong>${requirement.toLocaleString()}</strong><br>
-        You will need to farm <strong>${Math.ceil(requirement / brolyBefore)}</strong> Broly to rebirth.
-      `;
+    const suffixes = ['K', 'M', 'B', 'T', 'QD', 'QN', 'SX', 'SP', 'Oc', 'No'];
+    const units = suffixes.reduce((acc, suffix, index) => {
+      acc[suffix] = 10 ** ((index + 1) * 3);
+      return acc;
+    }, {});
 
+    document.getElementById('notationInfo').textContent = 
+      `Support notations: ${Object.keys(units).join(', ')}`;
+
+    const powerInput = document.getElementById('powerInput');
+    const rebirthRequirement = document.getElementById('rebirthRequirement');
+    const resultText = document.getElementById('resultText');
+    const calculateBtn = document.getElementById('calculateBtn');
+
+    function parseFormattedNumber(str) {
+      if (typeof str === 'number') return str;
+      const match = /^([\d,.]+)\s*([a-zA-Z]*)$/i.exec(str.trim());
+      if (!match) return NaN;
+
+      let [, num, suffix] = match;
+      num = parseFloat(num.replace(/,/g, ''));
+
+      if (!suffix) return num;
+
+      const multiplier = units[suffix.toUpperCase()];
+      return multiplier ? num * multiplier : NaN;
+    }
+
+    calculateBtn.addEventListener('click', () => {
+      const power = parseFormattedNumber(powerInput.value);
+      const requirement = parseFormattedNumber(rebirthRequirement.value);
+
+      if (!isNaN(power) && !isNaN(requirement) && power > 0 && requirement > 0) {
+        const rebirths = Math.log(requirement / power) / Math.log(0.5);
+        const rounded = Math.max(0, Math.ceil(rebirths));
+        resultText.textContent = `You will get ${rounded} rebirth${rounded !== 1 ? 's' : ''}`;
+      } else {
+        resultText.textContent = 'Please enter valid numbers above.';
+      }
     });
   </script>
 </body>

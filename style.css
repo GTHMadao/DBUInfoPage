@@ -81,8 +81,7 @@ h1 {
 .sidebar ul li {
   padding: 1rem;
   text-align: center;
-  background-color: rgb(255, 101, 242, 0.5); /* semi-transparent red */
-  margin: 0.5rem 1rem;
+  margin: -1rem -0.1rem;
   border-radius: 8px;
   transition: 0.1s;
   overflow: hidden; /* Make sure child a stays inside the rounded corners */
@@ -90,16 +89,20 @@ h1 {
 
 
 .sidebar ul li a {
+  box-sizing: border-box;
   color: white;
   align-items: center;
   justify-content: center;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  background-color: rgba(255, 101, 242, 0.5);
+  padding: 1rem 2rem;
   text-decoration: none;
   font-size: 1.1rem;
   display: flex;
   flex: 1; /* allow a to fill li */
   width: 100%;   /* Make the link fill the entire width */
   height: 100%;  /* Make the link fill the entire height */
+  border-radius: 8px;
 }
 
 .sidebar ul li a:hover {
@@ -265,6 +268,56 @@ th, td {
   color: #00bfff;
   text-decoration: underline;
 }
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 70vh;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.center-content p {
+  font-size: 1.2rem;
+  color: #ccc;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+}
+
+.nav-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-buttons a {
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(255, 101, 242, 0.5);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px black;
+  font-weight: bold;
+  transition: transform 0.15s ease, background-color 0.3s;
+  width: 260px;
+  text-align: center;
+}
+
+
+.nav-buttons a:hover {
+  background-color: rgb(141, 0, 106);
+  transform: scale(1.1);
+}
+
+.nav-buttons a:active {
+  transform: scale(0.95);
+}
+
 
 @media (max-width: 600px) {
   table, th, td {

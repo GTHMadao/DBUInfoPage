@@ -84,7 +84,7 @@ h1 {
   background-color: rgb(255, 101, 242, 0.5); /* semi-transparent red */
   margin: 0.5rem 1rem;
   border-radius: 8px;
-  transition: background-color 0.3s ease;
+  transition: 0.1s;
 }
 
 .sidebar ul li:hover {

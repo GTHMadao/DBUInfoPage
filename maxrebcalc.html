@@ -81,7 +81,22 @@
       const power = parseFormattedNumber($('powerInput').value);
       const requirement = parseFormattedNumber($('rebirthRequirement').value);
       const rebirths = Math.log(requirement / power) / Math.log(0.5);
-      $('resultText').textContent = isFinite(rebirths) ? `You will get +${Math.max(0, Math.ceil(rebirths))} rebirth${rebirths !== 1 ? 's' : ''}` : 'Please enter valid numbers above.';
+      let displayRebirths = 0;
+
+      if (isFinite(rebirths)) {
+        if (rebirths < 0) {
+          displayRebirths = 0;
+        } else if (Math.ceil(rebirths) === 0) {
+          displayRebirths = 1;
+        } else {
+          displayRebirths = Math.ceil(rebirths);
+        }
+      }
+
+      $('resultText').textContent = isFinite(rebirths)
+        ? `You will get +${displayRebirths} rebirth${displayRebirths !== 1 ? 's' : ''}`
+        : 'Please enter valid numbers above.';
+
     };
 
     $('desiredRebirths').oninput = () => {

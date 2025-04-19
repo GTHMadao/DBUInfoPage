@@ -109,6 +109,13 @@
       margin-top: 0;
     }
 
+    .table-wrapper {
+      overflow-x: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+
     table {
       width: 100%;
       max-width: 800px;
@@ -123,6 +130,7 @@
       border-radius: 15px;
       overflow: hidden;
       table-layout: fixed;
+      min-width: 700px; /* or any width that prevents columns from cramming too hard */
     }
 
     th, td {
@@ -145,11 +153,7 @@
       text-decoration: underline;
     }
 
-    .table-wrapper {
-      overflow-x: auto;
-      width: 100%;
-    }
-
+    
 
     @media (max-width: 600px) {
       table, th, td {

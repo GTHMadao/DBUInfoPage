@@ -2,308 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:title" content="DBU Max Rebirth Calculator" />
-  <meta property="og:description" content="Calculate how much rebirths you get from max rebirth." />
-  <meta property="og:image" content="https://tr.rbxcdn.com/180DAY-6409b4530cc879b6c4692b5a6118006d/768/432/Image/Webp/noFilter" />
-  <meta property="og:url" content="https://gthmadao.github.io/DBURebCalculator/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <title>DBU Max Rebirth Calculator</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: start;
-      background-color: #111;
-      font-family: Arial, sans-serif;
-      color: white;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://tr.rbxcdn.com/180DAY-6409b4530cc879b6c4692b5a6118006d/768/432/Image/Webp/noFilter') center/cover no-repeat;
-      filter: brightness(0.3) blur(5px);
-      z-index: -1;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      text-align: center;
-      z-index: 1;
-    }
-
-    h1 {
-      margin-top: 2rem;
-      font-size: 4rem;
-      color: rgb(255, 255, 255,0.3);
-      text-shadow: 0 0 26px rgba(0, 0, 0, 1);
-    }
-
-    input[type="text"], button {
-      padding: 0.75rem 1rem;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      width: 260px;
-    }
-
-    input[type="text"] {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: white;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
-
-    input::placeholder {
-      color: white;
-    }
-
-    button {
-      background-color: rgba(0, 172, 23, 0.5);
-      color: white;
-      cursor: pointer;
-      transition: transform 0.15s ease, background-color 0.3s;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-      width: 160px;
-    }
-
-    button:hover {
-      background-color: #007c1b;
-      transform: scale(1.1);
-    }
-
-    button:active {
-      transform: scale(0.95);
-    }
-
-    .result {
-      font-size: 1.2rem;
-      color: #00ffcc;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-    }
-
-    .notation-info, .reminder {
-      color: #ccc;
-      font-size: 0.95rem;
-      text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-    }
-
-    .reminder {
-      font-size: 0.75rem;
-      width: 260px;
-      margin-top: 0;
-      background-color: rgba(255, 0, 0, 0.3); /* semi-transparent red */
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      color: white;
-      text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
-    }
-
-    .toggle-btn {
-      margin-top: 2rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-      background-color: rgba(172, 112, 0, 0.4);
-      color: white;
-      padding: 0.75rem 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-      transition: transform 0.15s ease, background-color 0.3s;
-      width: 260px;
-    }
-
-    .toggle-btn:hover {
-      background-color: #ce7500;
-      transform: scale(1.1);
-    }
-
-    .toggle-btn:active {
-      transform: scale(0.95);
-    }
-
-
-    table {
-      width: 100%;
-      max-width: 800px;
-      margin-top: 0.5rem;
-      border-collapse: separate;
-      border-spacing: 0 6px;
-      text-align: center;
-      font-size: 1rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-      border-radius: 15px;
-      overflow: hidden;
-      table-layout: fixed;
-    }
-
-    th, td {
-      padding: 0.75rem;
-      width: 16.66%;
-      word-wrap: break-word;
-    }
-
-    .footer {
-      margin-top: 1rem;
-      color: white;
-      text-shadow: 0 0 10px black;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .footer a {
-      color: #00bfff;
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      table, th, td {
-        font-size: 0.75rem;
-      }
-      h1 { font-size: 2.5rem; }
-      input[type="text"], button { width: 90%; font-size: 1rem; }
-      .container { padding: 1rem; gap: 0.75rem; }
-      .notation-info { font-size: 0.85rem; padding: 0.5rem 0.75rem; }
-      .result { font-size: 1rem; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homepage</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>DBU MAX REBIRTH<br />CALCULATOR</h1>
-    <div class="notation-info" id="notationInfo"></div>
 
-    <input id="powerInput" type="text" placeholder="Enter your current stats" />
-    <input id="rebirthRequirement" type="text" placeholder="Enter your rebirth requirement" />
-    <button id="calculateBtn">MAX REBIRTH</button>
-    <div class="result" id="resultText">You will get +X rebirths</div>
+<!-- Hamburger Button -->
+<div class="hamburger" id="toggleSidebar">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <input id="desiredRebirths" type="text" placeholder="How many rebirths do you want?" />
-      <div class="reminder"><strong>INPUT YOUR REB REQUIREMENT FIRST!</strong></div>
-    </div>
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-header">MENU</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="maxrebcalc.html">Max Rebirth Calculator</a></li>
+    <li><a href="bossesinfo.html">Bosses List</a></li>
+  </ul>
+</div>
 
-    <div class="result" id="requiredStatsText">You will need X stats</div>
 
-    <div class="notation-info">
-      The max rebirth formula is:
-      <div style="margin-top: 4px; font-family: 'Courier New', monospace;">
-        Amount of Rebirths = log<sub>0.5</sub>(Rebirth Requirement / Stats)
-      </div>
-    </div>
 
-    <div class="notation-info">
-    <strong>NOTE:</strong> Max rebirth is capped at 10 for non-gamepass holders.
-    </div>
-
-    <button id="toggleBossesBtn" class="toggle-btn">
-      Show Bosses List
-    </button>
-    
-
-    <div id="bossesContainer" style="display: none; margin-top: 1rem;">
-      <table>
-        <thead>
-          <tr>
-            <th style="background-color: rgba(34,139,34,0.6)">EARTH</th>
-            <th style="background-color: rgba(34,139,34,0.6)">STAT REQ</th>
-            <th style="background-color: rgba(34,139,34,0.6)">BASE REWARDS</th>
-            <th style="background-color: rgba(128,0,128,0.6)">BILLS PLANET</th>
-            <th style="background-color: rgba(128,0,128,0.6)">STAT REQ</th>
-            <th style="background-color: rgba(128,0,128,0.6)">BASE REWARDS</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>X Fighter</td><td>0</td><td>1.05K</td><td>Jiren</td><td>30B</td><td>—</td></tr>
-          <tr><td>Roshi</td><td>—</td><td>5.7K</td><td>UE Vegeta</td><td>150B</td><td>—</td></tr>
-          <tr><td>Kid Gohan</td><td>—</td><td>—</td><td>Black Frieza</td><td>600B</td><td>—</td></tr>
-          <tr><td>Raditz</td><td>—</td><td>—</td><td>Vills (TGOD)</td><td>2.5T</td><td>—</td></tr>
-          <tr><td>Nappa</td><td>—</td><td>—</td><td>Vis (UI)</td><td>15T</td><td>—</td></tr>
-          <tr><td>Vegetable(Sayan Saga)</td><td>20K</td><td>—</td><td>Xicor</td><td>100T</td><td>—</td></tr>
-          <tr><td>Lord Slug</td><td>—</td><td>—</td><td>SSB3 goku</td><td>—</td><td>—</td></tr>
-          <tr><td>Ancient Saiyans</td><td>—</td><td>—</td><td>Kakata (Ego Instinct)</td><td>2QD</td><td>4.35T</td></tr>
-          <tr><td>Chilly</td><td>—</td><td>—</td><td></td><td>—</td><td>—</td></tr>
-          <tr><td>Android 17</td><td>—</td><td>—</td><td></td><td>—</td><td>—</td></tr>
-          <tr><td>Cell</td><td>—</td><td>—</td><td></td><td>—</td><td>—</td></tr>
-          <tr><td>Z Broccoli</td><td>4.5M</td><td>—</td><td></td><td>—</td><td>—</td></tr>
-          <tr><td>Super Boo</td><td>11.25M</td><td>9.6M</td><td></td><td>—</td><td>—</td></tr>
-          <tr><td>Kakata(SSJ)</td><td>60M</td><td>-</td><td></td><td>—</td><td>—</td></tr>
-          <tr><td>Bills 1%</td><td>150M</td><td>36M</td><td></td><td>—</td><td>—</td></tr>
-          <tr><td>Golden Chilly</td><td>3.5B</td><td>150M</td><td></td><td>—</td><td>—</td></tr>
-          <tr><td>Zamasu</td><td>—</td><td>—</td><td></td><td>—</td><td>—</td></tr>
-          <tr><td>Broccoli</td><td>11.25B</td><td>495M</td><td></td><td>—</td><td>—</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="footer">
-      Made by Madao<br>
-      <a href="https://www.roblox.com/users/7651428300/profile" target="_blank">Roblox Profile</a><br>
-      <span style="opacity: 0.6;">(send me robux pls 🙏)</span>
-    </div>
+  <!-- Page Content -->
+  <div style="padding: 2rem;">
+    <h1>Welcome to the Homepage</h1>
+    <p>This is the main content of the page.</p>
   </div>
 
-  <script>
-    const suffixes = ['K','M','B','T','QD','QN','SX','SP','OC','NO','DEC','DD','TD','QDD','QND'];
-    const units = Object.fromEntries(suffixes.map((s, i) => [s, 10 ** ((i + 1) * 3)]));
-    const $ = id => document.getElementById(id);
-    const formatToNotation = n => n < 1000 ? n.toString() : (() => {
-      const idx = Math.floor(Math.log10(n) / 3) - 1;
-      return idx < 0 || idx >= suffixes.length
-        ? n.toExponential(2)
-        : (n / 10 ** ((idx + 1) * 3)).toFixed(2).replace(/\.00$/, '') + suffixes[idx];
-    })();
-    const parseFormattedNumber = str => {
-      const match = /^([\d,.]+)\s*([a-zA-Z]*)$/i.exec(str.trim());
-      const num = parseFloat(match?.[1].replace(/,/g, '') || '');
-      return match?.[2] ? num * (units[match[2].toUpperCase()] || NaN) : num;
-    };
-
-    $('notationInfo').textContent = `Supported notations: ${suffixes.join(', ')}`;
-
-    $('calculateBtn').onclick = () => {
-      const power = parseFormattedNumber($('powerInput').value);
-      const requirement = parseFormattedNumber($('rebirthRequirement').value);
-      const rebirths = Math.log(requirement / power) / Math.log(0.5);
-      $('resultText').textContent = isFinite(rebirths) ? `You will get +${Math.max(0, Math.ceil(rebirths))} rebirth${rebirths !== 1 ? 's' : ''}` : 'Please enter valid numbers above.';
-    };
-
-    $('desiredRebirths').oninput = () => {
-      const goal = parseFloat($('desiredRebirths').value);
-      const requirement = parseFormattedNumber($('rebirthRequirement').value);
-      $('requiredStatsText').textContent = (requirement > 0 && goal >= 0)
-        ? `You will need ${formatToNotation(requirement * 2 ** (goal-1))} stats`
-        : 'You will need X stats';
-    };
-
-    const toggleBtn = $('toggleBossesBtn');
-    const bossesContainer = $('bossesContainer');
-
-    toggleBtn.onclick = () => {
-      const isVisible = bossesContainer.style.display === 'block';
-      bossesContainer.style.display = isVisible ? 'none' : 'block';
-      toggleBtn.textContent = isVisible ? 'Show Bosses List' : 'Hide Bosses List';
-    };
-
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

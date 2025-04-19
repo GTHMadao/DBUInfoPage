@@ -291,7 +291,7 @@
       const goal = parseFloat($('desiredRebirths').value);
       const requirement = parseFormattedNumber($('rebirthRequirement').value);
       $('requiredStatsText').textContent = (requirement > 0 && goal >= 0)
-        ? `You will need ${formatToNotation(requirement * 2 ** goal)} stats`
+        ? `You will need ${formatToNotation(requirement * 2 ** (goal-1))} stats`
         : 'You will need X stats';
     };
 

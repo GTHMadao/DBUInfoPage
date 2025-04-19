@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homepage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- Hamburger Button -->
+<div class="hamburger" id="toggleSidebar">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-header">MENU</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="maxrebcalc.html">Max Rebirth Calculator</a></li>
+    <li><a href="bosses&npcs.html">Bosses & NPCs</a></li>
+  </ul>
+</div>
+
+
+<div class="container">
+  <h1>BOSSES<br />& NPCS</h1>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Boss</th>
+          <th>Stat Req</th>
+          <th>Base Rewards</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Earth Section -->
+        <tr>
+          <td colspan="3" style="background-color: rgba(34,139,34,0.6); font-weight: bold; text-align: center;">EARTH</td>
+        </tr>
+        <tr><td>X Fighter</td><td>0</td><td>350</td></tr>
+        <tr><td>Roshi</td><td>875</td><td>1.9K</td></tr>
+        <tr><td>Kid Nohag</td><td>—</td><td>—</td></tr>
+        <tr><td>Radish</td><td>3.5K</td><td>—</td></tr>
+        <tr><td>Mapa</td><td>8K</td><td>—</td></tr>
+        <tr><td>Vegetable(Saya Saga)</td><td>20K</td><td>—</td></tr>
+        <tr><td>Lord Sloog</td><td>37.5K</td><td>—</td></tr>
+        <tr><td>Citizen</td><td>87.5K</td><td>—</td></tr>
+        <tr><td>Chilly</td><td>225K</td><td>—</td></tr>
+        <tr><td>No. 17</td><td>—</td><td>—</td></tr>
+        <tr><td>Perfect Atom</td><td>—</td><td>—</td></tr>
+        <tr><td>Z Broccoli</td><td>4.5M</td><td>—</td></tr>
+        <tr><td>Super Boo</td><td>11.25M</td><td>3.2M</td></tr>
+        <tr><td>Kakata (SSJ)</td><td>60M</td><td>-</td></tr>
+        <tr><td>Bills 1%</td><td>150M</td><td>12M</td></tr>
+        <tr><td>Golden Chilly</td><td>3.5B</td><td>50M</td></tr>
+        <tr><td>Merged Zamas</td><td>17.5B</td><td>—</td></tr>
+        <tr><td>Broccoli</td><td>112.5B</td><td>165M</td></tr>
+    
+        <!-- Bills Planet Section -->
+        <tr>
+          <td colspan="3" style="background-color: rgba(128,0,128,0.6); font-weight: bold; text-align: center;">BILLS PLANET</td>
+        </tr>
+        <tr><td>Jiran the Gray</td><td>10B</td><td>—</td></tr>
+        <tr><td>Vegetable (Ultra Ego)</td><td>50B</td><td>—</td></tr>
+        <tr><td>Black Frieza</td><td>600B</td><td>—</td></tr>
+        <tr><td>Vills (TGOD)</td><td>2.5T</td><td>—</td></tr>
+        <tr><td>Vis (UI)</td><td>15T</td><td>—</td></tr>
+        <tr><td>Xicor</td><td>100T</td><td>—</td></tr>
+        <tr><td>Wukong (SSJB3)</td><td>350T</td><td>—</td></tr>
+        <tr><td>Kakata (Ego Instinct)</td><td>2QD</td><td>1.45T</td></tr>
+
+         <!-- NPC Section -->
+        <tr>
+          <td colspan="3" style="background-color: rgba(20, 196, 255, 0.6); font-weight: bold; text-align: center;">NPCs</td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th colspan="2">Description</th>
+        </tr>
+        <tr>
+          <td>Vis (Vills Planet)</td>
+          <td colspan="2">Allows you to teleport to Bills Planet.</td>
+        </tr>
+        <tr>
+          <td>Appearance Changer</td>
+          <td colspan="2">Allows you to change your appearance.</td>
+        </tr>
+        <tr>
+          <td>Bard</td>
+          <td colspan="2">Allows you to switch side (Good/Bad).</td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+    
+    
+
+  <div class="footer">
+    Made by Madao<br>
+    <a href="https://www.roblox.com/users/7651428300/profile" target="_blank">Roblox Profile</a><br>
+    <span style="opacity: 0.6;">(send me robux pls 🙏)</span>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+  <script>
+    const $ = id => document.getElementById(id);
+
+    const toggleBtn = $('toggleBossesBtn');
+    const bossesContainer = $('bossesContainer');
+
+    toggleBtn.onclick = () => {
+      const isVisible = bossesContainer.style.display === 'block';
+      bossesContainer.style.display = isVisible ? 'none' : 'block';
+      toggleBtn.textContent = isVisible ? 'Show Bosses List' : 'Hide Bosses List';
+    };
+ 
+
+  </script>
+</body>
+</html>

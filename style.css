@@ -85,25 +85,33 @@ h1 {
   margin: 0.5rem 1rem;
   border-radius: 8px;
   transition: 0.1s;
+  overflow: hidden; /* Make sure child a stays inside the rounded corners */
 }
 
-.sidebar ul li:hover {
-  background-color: rgb(141, 0, 106);
-  transform: scale(1.1); /* Expand slightly on hover */
-}
-
-.sidebar ul li:active {
-  background-color: rgba(255, 129, 224, 0.534);
-  transform: scale(0.8); /* Expand slightly on hover */
-}
 
 .sidebar ul li a {
   color: white;
+  align-items: center;
+  justify-content: center;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
   text-decoration: none;
   font-size: 1.1rem;
-  display: block;
+  display: flex;
+  flex: 1; /* allow a to fill li */
+  width: 100%;   /* Make the link fill the entire width */
+  height: 100%;  /* Make the link fill the entire height */
 }
+
+.sidebar ul li a:hover {
+  background-color: rgb(141, 0, 106);
+  transform: scale(1.05);
+}
+
+.sidebar ul li a:active {
+  background-color: rgba(255, 129, 224, 0.534);
+  transform: scale(0.95);
+}
+
 
 .hamburger {
   width: 30px;

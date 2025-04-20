@@ -13,11 +13,19 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homepage</title>
+  <title>Bosses&NPCs</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+   <!-- Roblox Posters -->
+ <div class="robloxposter robloxposter-top-left" id="robloxposterTopLeft">EMPTY AD SPOT FOR SALE. 100RBX/WEEK.<br>CONTACT BORDERLINEBANKRUPTCY ON DISCORD.</div>
+ <div class="robloxposter robloxposter-top-right" id="robloxposterTopRight">EMPTY AD SPOT FOR SALE. 100RBX/WEEK.<br>CONTACT BORDERLINEBANKRUPTCY ON DISCORD.</div>
+ <div class="robloxposter robloxposter-bottom-left" id="robloxposterBottomLeft">EMPTY AD SPOT FOR SALE. 100RBX/WEEK.<br>CONTACT BORDERLINEBANKRUPTCY ON DISCORD.</div>
+ <div class="robloxposter robloxposter-bottom-right" id="robloxposterBottomRight">EMPTY AD SPOT FOR SALE. 100RBX/WEEK.<br>CONTACT BORDERLINEBANKRUPTCY ON DISCORD.</div>
+ <div class="robloxposter robloxposter-middle-left" id="robloxposterMiddleLeft">EMPTY AD SPOT FOR SALE. 100RBX/WEEK.<br>CONTACT BORDERLINEBANKRUPTCY ON DISCORD.</div>
+ <div class="robloxposter robloxposter-middle-right" id="robloxposterMiddleRight">EMPTY AD SPOT FOR SALE. 100RBX/WEEK.<br>CONTACT BORDERLINEBANKRUPTCY ON DISCORD.</div>
+
   <!-- Hamburger Button -->
   <div class="hamburger" id="toggleSidebar">
     <span></span>
@@ -33,7 +41,7 @@
       <li><a href="maxrebcalc.html">Max Rebirth Calculator</a></li>
       <li><a href="bosses&npcs.html">Bosses & NPCs</a></li>
       <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Maps (WIP)</a></li>
-      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forms (WIP)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forms & Masteries (WIP)</a></li>
       <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Gamepasses (WIP)</a></li>
       <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Credits (WIP)</a></li>
     </ul>
@@ -132,7 +140,7 @@
           <td>60M</td>
           <td>5.7M</td>
         </tr>
-        <tr>
+        <tr class="highlight-gold">
           <td>Bills 1%</td>
           <td>150M</td>
           <td>12M</td>
@@ -147,7 +155,7 @@
           <td>17.5B</td>
           <td>95M</td>
         </tr>
-        <tr>
+        <tr class="highlight-gold">
           <td>Broccoli</td>
           <td>112.5B</td>
           <td>165M</td>
@@ -173,7 +181,7 @@
           <td>600B</td>
           <td>2.7B</td>
         </tr>
-        <tr>
+        <tr class="highlight-gold">
           <td>Vills (TGOD)</td>
           <td>2.5T</td>
           <td>8.4B</td>
@@ -253,7 +261,8 @@
         yesMessage: "Bring it on",
         yesReply: "Good luck.",
         noMessage: "No",
-        noReply: "Defeat 3 X Fighters!"
+        noReply: "",
+        quest: "Defeat 3 X Fighters!"
       },
       "Roshi": {
         realName: "Master Roshi",
@@ -263,7 +272,8 @@
         yesMessage: "Yes",
         yesReply: "Please train me oh wise master!",
         noMessage: "No",
-        noReply: "Defeat Roshi"
+        noReply: "",
+        quest: "Defeat Roshi"
       },
       "Kid Nohag": {
         realName: "Kid Gohan",
@@ -402,6 +412,7 @@
         description: "Beerus is the God of Destruction of Universe 7. He is accompanied by his martial arts teacher and attendant, Whis. Beerus' twin brother is Champa, the God of Destruction of Universe 6.<br><br>Beerus is the main antagonist of the Dragon Ball Z: Battle of Gods film and the God of Destruction Beerus Saga but becomes a supporting character in later sagas.",
         dialogue: "I'm bored.. I need someone to fight! Are you strong?",
         image: "https://media.discordapp.net/attachments/1363122068035469342/1363209158928764968/IMG_1003.png?ex=6805dbb6&is=68048a36&hm=6d4ef4346537eb09c2c762e39938701d30beb83b48dab27880d83ae7923652d5&=&format=webp&quality=lossless&width=830&height=860",
+        drops: "100% chance to drop SSJG",
         yesMessage: "Yeah!",
         yesReply: "THEN COME FIGHT ME",
         noMessage: "No",
@@ -435,6 +446,7 @@
         description: "Broly is the main antagonist in the Broly Triple Threat trilogy. He appears to be the latest of the Legendary Super Saiyans who appear every one thousand years.",
         dialogue: "BROCCOLI... HEALTHY... AHHHH",
         image: "https://media.discordapp.net/attachments/1363122068035469342/1363209318085689514/IMG_1017.png?ex=6805dbdc&is=68048a5c&hm=c8ea7c68c5264c38fa984b98c00317b430fb3aacfbffd643fec32e1507bb8b13&=&format=webp&quality=lossless&width=846&height=858",
+        drops: "100% chance to drop Ultra Instinct Omen",
         yesMessage: "Maximum Power!",
         yesReply: "AAAHHHHHH",
         noMessage: "No",
@@ -476,13 +488,14 @@
         description: "Beerus is the God of Destruction of Universe 7. He is accompanied by his martial arts teacher and attendant, Whis. Beerus' twin brother is Champa, the God of Destruction of Universe 6.<br><br>Beerus is the main antagonist of the Dragon Ball Z: Battle of Gods film and the God of Destruction Beerus Saga but becomes a supporting character in later sagas.",
         dialogue: "Hey! You think you're stronger than me?!",
         image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        drops: "Small chance to drop GOD and GOC",
         yesMessage: "Ok",
         yesReply: "HAHAHAHA",
         noMessage: "No",
         noReply: "oh"
       },
       "Vis (UI)": {
-        realName: "Super Broly",
+        realName: "Whis",
         description: "Whis is the Guide Angel Attendant of Universe 7's God of Destruction, Beerus, as well as his Martial Arts teacher. Along with the other angels, he is a child of the Grand Minister. Like all attendants, he is bound to the service of his deity and usually does not leave Beerus unaccompanied.",
         dialogue: "Hey! You think you're stronger than me?!",
         image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
@@ -560,7 +573,30 @@
 
 
       topDiv.appendChild(img1);
-
+      if (bossInfo.drops) {
+        const dropDiv = document.createElement("div");
+        dropDiv.style = `
+          margin-top: 0px;
+          padding: 6px 10px;
+          background-color: rgba(255,215,0,0.2);
+          border-radius: 5px;
+          font-weight: bold;
+          text-align: center;
+          font-size:1rem
+        `;
+        dropDiv.textContent = `Drops: ${bossInfo.drops}`;
+        topDiv.appendChild(dropDiv);
+      }
+      // Add credit underneath the image and drop
+      const creditDiv = document.createElement("div");
+      creditDiv.style = `
+        margin-top: 4px;
+        font-size: 0.75rem;
+        color: #888;
+        text-align: center;
+      `;
+      creditDiv.textContent = "Image Credit: PoppaPain";
+      topDiv.appendChild(creditDiv);
 
       // Bottom row with text
       const bottomDiv = document.createElement("div");

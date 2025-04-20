@@ -100,7 +100,7 @@ h1 {
   align-items: center;
   justify-content: center;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
-  background-color: rgba(255, 101, 242, 0.5);
+  background-color: rgba(255, 101, 242, 0.3);
   padding: 1rem 2rem;
   text-decoration: none;
   font-size: 1.1rem;
@@ -359,7 +359,7 @@ table tbody tr {
 }
 
 .info-box-wrapper.open {
-  max-height: 300px;
+  max-height: 800px;
   /* adjust as needed */
 }
 

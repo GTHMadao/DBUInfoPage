@@ -38,8 +38,7 @@
     <input id="powerInput" type="text" placeholder="Enter your current stats" />
     <input id="rebirthRequirement" type="text" placeholder="Enter your rebirth requirement" />
     <button id="calculateBtn">MAX REBIRTH</button>
-    <div class="result" id="resultText">You will get +X rebirths</div>
-    <div class="result" id="finalStatsText">Your stats will be X after max rebbing.</div>
+    <div class="result" id="resultText">You will gain +X rebirths and will be left with X stats after max rebbing.</div>
 
 
     <div style="display: flex; flex-direction: column; align-items: center;">
@@ -101,15 +100,12 @@
         }
       }
 
-      $('resultText').textContent = isFinite(rebirths)
-        ? `You will get +${displayRebirths} rebirth${displayRebirths !== 1 ? 's' : ''}`
+      const finalStats = power * Math.pow(0.5, displayRebirths);
+
+      $('resultText').textContent = isFinite(rebirths) && isFinite(finalStats)
+        ? `You will gain +${displayRebirths} rebirth${displayRebirths !== 1 ? 's' : ''} and will be left with ${formatToNotation(finalStats)} stats after max rebbing.`
         : 'Please enter valid numbers above.';
 
-      // NEW CODE: Calculate final stats after max rebbing
-      const finalStats = power * Math.pow(0.5, displayRebirths);
-      $('finalStatsText').textContent = isFinite(finalStats)
-        ? `Your stats will be ${formatToNotation(finalStats)} after max rebbing.`
-        : 'Your stats will be X after max rebbing.';
     };
 
 

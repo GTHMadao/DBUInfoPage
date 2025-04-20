@@ -33,7 +33,10 @@
 
   <div class="container">
     <h1>BOSSES<br />& NPCS</h1>
-    <h2 style="text-align: center; margin-bottom: 10px;">Click on a row to see more information!</h2>
+    <h2 style="text-align: center; margin-bottom: 10px;">
+      Click on a row to see more information!<br>
+      <span style="font-size: 0.85em; color: #888;">*Double tap for mobile users</span>
+    </h2>
 
 
     <table>
@@ -232,6 +235,140 @@
 
   <script src="script.js"></script>
   <script>
+    const bossData = {
+      "X Fighter": {
+        realName: "X Fighter",
+        description: "An original Dragon Blox Ultimate boss.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Roshi": {
+        realName: "Master Roshi",
+        description: "Master Roshi, also known as the Turtle Hermit (or Turtle (Kame) in his youth) and God of Martial Arts, is a perverted hermit and a master of martial arts. He lives on his own isolated island called Kame House, where he may be willing to train students who travel to his doorstep. He is also the originator of the Kamehameha Wave.",
+        dialogue: "Back in my day, we trained with turtles!"
+      },
+      "Kid Nohag": {
+        realName: "Kid Son Gohan",
+        description: "Son Gohan is a half-breed Saiyan and one of the most prominent characters in the Dragon Ball series. He is the elder son of the series' primary protagonist Goku and his wife Chi-Chi, the older brother of Goten, the husband of Videl and father to Pan. He is named after Goku's adoptive grandfather, Gohan.",
+        dialogue: "You're no match for my moves!"
+      },
+      "Radish": {
+        realName: "Raditz",
+        description: "Raditz, also known as \"Raditz the Runt\", is a mid-class Saiyan warrior, the older brother of Goku and the first-born son of Bardock and Gine. He is one of the few remaining full-blooded Saiyans left alive after his homeworld was destroyed. He seeks out Goku in order to recruit him into the Frieza Force to aid in conquering planets.",
+        dialogue: "You're no match for my moves!"
+      },
+      "Mapa": {
+        realName: "Nappa",
+        description: "Nappa is a mid-class Saiyan warrior from Planet Vegeta, and Vegeta's partner in combat. Prior to the destruction of Planet Vegeta, Nappa held the rank of general in the Saiyan Army and aide/partner to the young prince, Vegeta. After his race's demise, he, along with Vegeta and Raditz, worked as soldiers directly under Frieza, which led him to Earth.",
+        dialogue: "You're no match for my moves!"
+      },
+      "Vegetable(Saya Saga)": {
+        realName: "Vegeta (Saiyan Saga)",
+        description: "Vegeta, is the prince of the fallen Saiyan race and the husband of Bulma, the father of Trunks and Bulla, the eldest son of King Vegeta, as well as one of the main characters of the Dragon Ball series.<br><br>Regal, egotistical, and full of pride, Vegeta was once a ruthless, cold-blooded warrior and outright killer,[12] but later abandoned his position in the Frieza Force for a peaceful life on Earth. He would repeatedly fight alongside Universe 7's most powerful warriors in order to protect Earth and his family, as well as to surpass Goku in power.",
+        dialogue: "You're no match for my moves!"
+      },
+      "Lord Sloog": {
+        realName: "Lord Slug",
+        description: "Slug, known as Lord Slug to himself and his underlings, is a Namekian, and the main antagonist of Dragon Ball Z: Lord Slug. It is explained that he is one of the Super Namekians and was sent to Planet Slug as a baby to escape the extinction that was about to ravage Namek. As he matured, the evil in his heart began to overwhelm his character thanks to a rare mutation unique to Namekians; this transformed him into a Super Namekian. Since then, he had gathered an army and became a conqueror of planets (in Funimation dub, he was banished from Planet Namek sometime around Age 261 along with other Super Namekians).",
+        dialogue: "You're no match for my moves!"
+      },
+      "Citizen": {
+        realName: "Citizen",
+        description: "An original Dragon Blox Ultimate boss.",
+        dialogue: "You're no match for my moves!"
+      },
+      "Chilly": {
+        realName: "Frieza",
+        description: "Frieza is a major antagonist in the Dragon Ball franchise. He is the descendant of Chilled, the younger son of King Cold, the younger brother of Cooler and the father of Kuriza.<br><br>Inheriting his father's imperialist army and rising to power as the emperor of Universe 7 at a young age, Frieza quickly established himself as a ruthless tyrant, feared across the universe for his unparalleled cruelty and power. Ever since his invasion of Namek, Frieza has been the series' most recurring villain, clashing with his archnemesis Goku and his allies on several occasions, becoming even more powerful every time.",
+        dialogue: "You're no match for my moves!"
+      },
+      "No. 17": {
+        realName: "Android 17",
+        description: "Android 17, Lapis when he was an ordinary human, is the younger twin brother of Android 18 and Dr. Gero's seventeenth android creation, designed to serve Gero's vendetta against Goku. Despite his interests not initially deviating from this expectation, Android 17 takes it upon himself to kill Dr. Gero, who is uncooperative with Android 18's curiosity in activating Android 16 and deemed inferior by 17.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Perfect Atom": {
+        realName: "Perfect Cell",
+        description: "Cell is the ultimate creation of Dr. Gero, designed via cell recombination using the genetics of the greatest fighters that the Remote Tracking Device could find on Earth. The result was a \"perfect warrior\", possessing numerous favorable genetic traits and special abilities from Goku, Vegeta, Piccolo, Frieza and King Cold.<br><br>He was one of the few Red Ribbon Androids not directly completed by Dr. Gero, instead being completed by Dr. Gero's Supercomputer in an alternate timeline. After achieving perfection, he sought to dominate the world through fear of his incredible power. He is the main antagonist of the overarching Cell Saga.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Z Broccoli": {
+        realName: "Z Broly",
+        description: "Broly is the main antagonist in the Broly Triple Threat trilogy. He appears to be the latest of the Legendary Super Saiyans who appear every one thousand years.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Super Boo": {
+        realName: "Super Buu",
+        description: "Super Buu, also called Majin Buu (Evil), is the result of Evil Buu eating Good Buu in a chocolate form. This new Majin Buu has tremendously more power and increased mental capacity than the previous incarnation. In this form, Buu has very little patience and extremely dangerous fits of rage, even possessing the power to rip through dimensional walls if angered enough. He is the main antagonist for the Fusion Saga.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Kakata (SSJ)": {
+        realName: "Vegito (SSJ)",
+        description: "Vegito, also known as Vegerot in the Viz English manga, is the resulting fusion between Goku and Vegeta by the use of the Potara earrings. Vegito wields tremendous power, and like his Fusion Dance counterpart Gogeta, he is regarded as one of the mightiest warriors in the entire Dragon Ball franchise.<br><br>Vegito first appeared at the end of \"Union of Rivals\" to start battling with Super Buu, with his second appearance in the next episode \"Meet Vegito\" as the main protagonist throughout the entire episode. His debut in Dragon Ball Super was many years later to fight and attempt to defeat Fused Zamasu, though they quickly defused due to over-usage of power.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Bills 1%": {
+        realName: "Beerus",
+        description: "Beerus is the God of Destruction of Universe 7. He is accompanied by his martial arts teacher and attendant, Whis. Beerus' twin brother is Champa, the God of Destruction of Universe 6.<br><br>Beerus is the main antagonist of the Dragon Ball Z: Battle of Gods film and the God of Destruction Beerus Saga but becomes a supporting character in later sagas.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Golden Chilly": {
+        realName: "Golden Frieza",
+        description: "Golden Frieza is the Ultimate Evolution of the Frieza Race. It was first created and named by Frieza himself. This transformation is achieved by Frieza through vigorous training methods due to his obsessive need for revenge against Goku, as Frieza is a natural prodigy in terms of power, he never trained prior to his endeavor to defeat Goku.<br><br>Unlike the other forms that are able to be used constantly and are for power-suppression, this form is an acquired, non-permanent transformation used to power up.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Merged Zamas": {
+        realName: "Fused Zamasu",
+        description: "Fused Zamasu, (known as Merged Zamasu in the anime and God Zamas in the Viz manga) usually just referred to as Zamasu, is a Potara fusion born of the union between Goku Black (the original present Zamasu in the original present Goku's body) and Future Zamasu. He is the final antagonist of the \"Future\" Trunks Saga.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Broccoli": {
+        realName: "Super Broly",
+        description: "Broly is the main antagonist in the Broly Triple Threat trilogy. He appears to be the latest of the Legendary Super Saiyans who appear every one thousand years.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Jiran the Gray": {
+        realName: "Jiren",
+        description: "Jiren, also known as Jiren the Gray, is the most powerful member of the Pride Troopers. An extraordinary powerful being, Jiren is considered to be one of the strongest mortals in all of the multiverse, outclassing even his Universe's God of Destruction. He is a quiet and honorable fighter, who believes in strength and justice. He previously did not trust anyone and never considered teamwork at all during battle, opting to fight enemies alone, and single-handedly almost always winning.<br><br>Jiren served as the main fighting antagonist in the Universe Survival Saga and as a major contestant in the Tournament of Power.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Vegetable (Ultra Ego)": {
+        realName: "Vegeta (Ultra Ego)",
+        description: "Ultra Ego is a powerful divine transformation used by Vegeta that utilizes the Ultra Ego ability and the power of destruction.<br><br>This state is attained by one who has received a proper God of Destruction training and has gained the ability to use the powers of one. However, the state can only be utilized when the user is in the right mindset to act as a Destroyer. Vegeta at one point during his fight with Granolah described the form as a polar opposite to Ultra Instinct. A user of this state gains the power of destruction.<br><br>Ultra Ego is the strongest form Vegeta has appeared in. Ultra Ego changes its user's ki to become the same as that of a God of Destruction and its user's power grows without limit through instinct as their fighting spirit increases.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Black Frieza": {
+        realName: "Black Frieza",
+        description: "The possibility of Frieza reaching a new form or level of power was first brought up by Vegeta in Dragon Ball Super: Broly, with the threat of such an occurrence being the prince's reason for training.<br><br>According to Toyotarou, the reason Frieza's new form was colored black is because it is the only one that could stand above the gold. He jokingly compared it to a black credit card which is ranked higher than a gold one.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Vills (TGOD)": {
+        realName: "Beerus",
+        description: "Beerus is the God of Destruction of Universe 7. He is accompanied by his martial arts teacher and attendant, Whis. Beerus' twin brother is Champa, the God of Destruction of Universe 6.<br><br>Beerus is the main antagonist of the Dragon Ball Z: Battle of Gods film and the God of Destruction Beerus Saga but becomes a supporting character in later sagas.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Vis (UI)": {
+        realName: "Super Broly",
+        description: "Whis is the Guide Angel Attendant of Universe 7's God of Destruction, Beerus, as well as his Martial Arts teacher. Along with the other angels, he is a child of the Grand Minister. Like all attendants, he is bound to the service of his deity and usually does not leave Beerus unaccompanied.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Xicor": {
+        realName: "Xicor",
+        description: "Xicor, also known as Zaiko, is the main antagonist of Toyble's Dragon Ball AF. He is the actual youngest son of Goku, due to deceitfulness and trickery casted by the vengeful Western Supreme Kai. Thus making him part Saiyan and part Kai. *A Saiyan God* in other terms. Xicor goes to Earth years after Son Goku's departure with Shenron, with his mother, to seek out the strongest, gain position of ruler of the Earth, and to meet his father.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Wukong (SSJB3)": {
+        realName: "Goku (SSJB3)",
+        description: "Son Goku, born Kakarot, is a Saiyan raised on Earth and the main protagonist of the Dragon Ball series. He is the second-born son and youngest child of Bardock and Gine, the husband of Chi-Chi, and the father of Gohan and Goten. Originally sent to Earth by his parents as an infant, Kakarot was adopted by Grandpa Gohan and renamed Son Goku. A head injury at an early age altered Goku's memory, ridding him of his initial destructive nature and allowing him to grow up to become one of Earth's greatest defenders. Goku constantly strives and trains to be the greatest warrior that he can possibly be, which has kept the Earth and the universe safe from destruction multiple times.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      "Kakata (Ego Instinct)": {
+        realName: "Vegito (Ego Instinct)",
+        description: "Vegito, also known as Vegerot in the Viz English manga, is the resulting fusion between Goku and Vegeta by the use of the Potara earrings. Vegito wields tremendous power, and like his Fusion Dance counterpart Gogeta, he is regarded as one of the mightiest warriors in the entire Dragon Ball franchise.<br><br>Vegito first appeared at the end of \"Union of Rivals\" to start battling with Super Buu, with his second appearance in the next episode \"Meet Vegito\" as the main protagonist throughout the entire episode. His debut in Dragon Ball Super was many years later to fight and attempt to defeat Fused Zamasu, though they quickly defused due to over-usage of power.",
+        dialogue: "Hey! You think you're stronger than me?!"
+      },
+      // Add more bosses like this...
+    };
+
     const $ = id => document.getElementById(id);
 
     const table = document.querySelector("table");
@@ -264,12 +401,20 @@
       // Right (2/3) column with text
       const rightDiv = document.createElement("div");
       rightDiv.className = "info-right";
+      const bossInfo = bossData[label] || {
+        realName: label,
+        description: "No description available.",
+        dialogue: "..."
+      };
       rightDiv.innerHTML = `
+        <strong>Real Name:</strong><br>
+        ${bossInfo.realName}<br><br>
         <strong>Description:</strong><br>
-        Description about <em>${label}</em> will go here.<br><br>
+        ${bossInfo.description}<br><br>
         <strong>Dialogue:</strong><br>
-        ${label} dialogue will go here.
+        ${bossInfo.dialogue}
       `;
+
 
       innerDiv.appendChild(leftDiv);
       innerDiv.appendChild(rightDiv);

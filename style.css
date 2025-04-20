@@ -371,9 +371,13 @@ table tbody tr {
 }
 
 .info-top img {
-  width: 20rem;
+  width: 100%;
+  max-width: 20rem;
   border-radius: 8px;
   object-fit: contain;
+  height: auto; /* make sure it keeps aspect ratio */
+  display: block; /* optional: removes inline spacing */
+  margin: 0 auto; /* optional: centers it */
 }
 
 /* Bottom row with text */
@@ -391,7 +395,7 @@ table tbody tr {
 
 /* When open, allow it to expand */
 .info-box-wrapper.open {
-  max-height: 1000px; /* Should be high enough to fit the content */
+  max-height: 1200px; /* Should be high enough to fit the content */
   padding: 20px;
 }
 

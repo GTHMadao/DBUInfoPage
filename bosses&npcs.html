@@ -27,6 +27,7 @@
 
 <div class="container">
   <h1>BOSSES<br />& NPCS</h1>
+  <h2 style="text-align: center; margin-bottom: 10px;">Click on a row to see more information!</h2>
 
 
     <table>
@@ -40,7 +41,7 @@
       <tbody>
         <!-- Earth Section -->
         <tr>
-          <td colspan="3" style="background-color: rgba(34,139,34,0.6); font-weight: bold; text-align: center;">EARTH</td>
+          <td colspan="3" style="background-color: rgba(34,139,34,0.6); font-weight: bold; text-align: center;">«《 EARTH 》»</td>
         </tr>
         <tr><td>X Fighter</td><td>0</td><td>350</td></tr>
         <tr><td>Roshi</td><td>875</td><td>1.9K</td></tr>
@@ -63,7 +64,7 @@
     
         <!-- Bills Planet Section -->
         <tr>
-          <td colspan="3" style="background-color: rgba(128,0,128,0.6); font-weight: bold; text-align: center;">BILLS PLANET</td>
+          <td colspan="3" style="background-color: rgba(128,0,128,0.6); font-weight: bold; text-align: center;">«《 BILLS PLANET 》»</td>
         </tr>
         <tr><td>Jiran the Gray</td><td>10B</td><td>370M</td></tr>
         <tr><td>Vegetable (Ultra Ego)</td><td>50B</td><td>800M</td></tr>
@@ -74,27 +75,36 @@
         <tr><td>Wukong (SSJB3)</td><td>350T</td><td>400B</td></tr>
         <tr><td>Kakata (Ego Instinct)</td><td>2QD</td><td>1.45T</td></tr>
 
-         <!-- NPC Section -->
+        <!-- NPC Section -->
         <tr>
-          <td colspan="3" style="background-color: rgba(20, 196, 255, 0.6); font-weight: bold; text-align: center;">NPCs</td>
+          <td colspan="3" style="background-color: rgba(20, 196, 255, 0.6); font-weight: bold; text-align: center;">«《 NPCs 》»</td>
         </tr>
         <tr>
           <th>Name</th>
-          <th colspan="2">Description</th>
-        </tr>
-        <tr>
-          <td>Vis (Vills Planet)</td>
-          <td colspan="2">Allows you to teleport to Bills Planet.</td>
+          <th>Description</th>
+          <th>Location</th>
         </tr>
         <tr>
           <td>Appearance Changer</td>
-          <td colspan="2">Allows you to change your appearance.</td>
+          <td>Allows you to change your appearance.</td>
+          <td>Earth</td>
         </tr>
         <tr>
           <td>Bard</td>
-          <td colspan="2">Allows you to switch side (Good/Bad).</td>
+          <td>Allows you to switch side (Good/Bad).</td>
+          <td>Earth</td>
         </tr>
         <tr>
+          <td>Vis (Vills Planet)</td>
+          <td>Teleports you to Bills Planet.</td>
+          <td>Earth</td>
+        </tr>
+        <tr>
+          <td>Kito</td>
+          <td>Teleports you to Earth.</td>
+          <td>Bills Planet</td>
+        </tr>
+
       </tbody>
     </table>
     
@@ -110,17 +120,99 @@
   <script src="script.js"></script>
   <script>
     const $ = id => document.getElementById(id);
+    
+    const table = document.querySelector("table");
+    let infoRow; // the full <tr> for the sliding box
+    let wrapperDiv; // the div with slide animation
+    let currentRow; // currently selected row
+  
+    const createInfoRow = (label) => {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.setAttribute("colspan", "3");
 
-    const toggleBtn = $('toggleBossesBtn');
-    const bossesContainer = $('bossesContainer');
+      wrapperDiv = document.createElement("div");
+      wrapperDiv.className = "info-box-wrapper";
 
-    toggleBtn.onclick = () => {
-      const isVisible = bossesContainer.style.display === 'block';
-      bossesContainer.style.display = isVisible ? 'none' : 'block';
-      toggleBtn.textContent = isVisible ? 'Show Bosses List' : 'Hide Bosses List';
+      const innerDiv = document.createElement("div");
+      innerDiv.className = "info-box two-column";
+
+      // Left (1/3) column with image
+      const leftDiv = document.createElement("div");
+      leftDiv.className = "info-left";
+      const img = document.createElement("img");
+      img.src = `images/${label.replace(/\s+/g, '_').toLowerCase()}.png`; // Placeholder logic
+      img.alt = label;
+      img.onerror = () => {
+        img.src = "https://comicvine.gamespot.com/a/uploads/original/11114/111142257/4882848-6868798986-yamch.jpg";
+      };
+      leftDiv.appendChild(img);
+
+      // Right (2/3) column with text
+      const rightDiv = document.createElement("div");
+      rightDiv.className = "info-right";
+      rightDiv.innerHTML = `
+        <strong>Description:</strong><br>
+        Description about <em>${label}</em> will go here.<br><br>
+        <strong>Dialogue:</strong><br>
+        ${label} dialogue will go here.
+      `;
+
+      innerDiv.appendChild(leftDiv);
+      innerDiv.appendChild(rightDiv);
+      wrapperDiv.appendChild(innerDiv);
+      td.appendChild(wrapperDiv);
+      tr.appendChild(td);
+
+      return tr;
     };
- 
+  
+    const handleRowClick = (row, label) => {
+      const insertNewInfoBox = () => {
+        infoRow = createInfoRow(label);
+        row.parentNode.insertBefore(infoRow, row.nextSibling);
+        setTimeout(() => {
+          wrapperDiv.classList.add("open");
+        }, 10);
+        currentRow = row;
+      };
 
+      if (infoRow && currentRow === row) {
+        wrapperDiv.classList.remove("open");
+        setTimeout(() => {
+          if (infoRow.parentNode) infoRow.remove();
+          infoRow = null;
+          currentRow = null;
+        }, 300);
+        return;
+      }
+
+      if (infoRow && infoRow.parentNode) {
+        wrapperDiv.classList.remove("open");
+        setTimeout(() => {
+          if (infoRow.parentNode) infoRow.remove();
+          insertNewInfoBox();
+        }, 300);
+      } else {
+        insertNewInfoBox();
+      }
+    };
+
+  
+    const rows = table.querySelectorAll("tbody tr");
+  
+    rows.forEach(row => {
+      const isTitleRow = row.children.length === 1;
+      const label = isTitleRow
+        ? row.textContent.trim()
+        : row.children[0].textContent.trim();
+  
+      row.style.cursor = "pointer";
+      row.addEventListener("click", () => handleRowClick(row, label));
+    });
   </script>
+  
+  
+  
 </body>
 </html>

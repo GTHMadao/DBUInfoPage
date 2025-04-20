@@ -331,7 +331,7 @@
         yesReply: "Very well!",
         noMessage: "No",
         noReply: "That's what I thought!",
-        quest: "Stop the space empoeror's evil reign!"
+        quest: "Stop the space emporor's evil reign!"
       },
       "No. 17": {
         realName: "Android 17",
@@ -538,12 +538,16 @@
       const topDiv = document.createElement("div");
       topDiv.className = "info-top";
 
-      const img1 = document.createElement("img");
-      img1.src = `images/${label.replace(/\s+/g, '_').toLowerCase()}.png`;
-      img1.alt = label;
-      img1.onerror = () => {
-        img1.src = bossInfo.image || "fallback/image/url.png";
+      const bossInfo = bossData[label] || {
+        realName: label,
+        description: "No description available.",
+        dialogue: "...",
+        quest: "..."
       };
+
+      const img1 = document.createElement("img");
+      img1.src = bossInfo.image || "fallback/image/url.png";
+      img1.alt = label;
 
 
       topDiv.appendChild(img1);
@@ -553,11 +557,7 @@
       const bottomDiv = document.createElement("div");
       bottomDiv.className = "info-bottom";
 
-      const bossInfo = bossData[label] || {
-        realName: label,
-        description: "No description available.",
-        dialogue: "..."
-      };
+ 
 
       const baseReward = row?.children[2]?.innerText || "N/A";
       const statReq = row?.children[1]?.innerText || "N/A";
@@ -629,7 +629,12 @@
       }
     };
 
-
+    Object.values(bossData).forEach(boss => {
+      if (boss.image) {
+        const img = new Image();
+        img.src = boss.image;
+      }
+    });
     const rows = table.querySelectorAll("tbody tr");
 
     rows.forEach(row => {
@@ -641,6 +646,8 @@
       row.style.cursor = "pointer";
       row.addEventListener("click", () => handleRowClick(row, label));
     });
+
+    
   </script>
 
 

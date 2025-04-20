@@ -430,4 +430,8 @@ table tbody tr {
   .result {
     font-size: 1rem;
   }
+
+  .info-bottom {
+    font-size: 0.95rem;
+  }
 }

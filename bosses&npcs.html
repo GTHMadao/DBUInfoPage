@@ -1,437 +1,657 @@
-/* style.css */
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  background-color: #111;
-  font-family: Arial, sans-serif;
-  color: white;
-  position: relative;
-  overflow-x: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://tr.rbxcdn.com/180DAY-6409b4530cc879b6c4692b5a6118006d/768/432/Image/Webp/noFilter') center/cover no-repeat;
-  filter: brightness(0.3) blur(5px);
-  z-index: -1;
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
+<body>
+  <!-- Hamburger Button -->
+  <div class="hamburger" id="toggleSidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  text-align: center;
-  z-index: 1;
-}
-
-h1 {
-  margin-top: 4rem;
-  font-size: 4rem;
-  color: rgb(255, 255, 255, 0.3);
-  text-shadow: 0 0 26px rgba(0, 0, 0, 1);
-}
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  background: url('https://img.freepik.com/free-vector/dark-background-with-geometric-design_1048-1454.jpg?semt=ais_hybrid&w=740') center/cover repeat;
-  background-size: cover;
-  overflow-x: hidden;
-  transition: 0.4s;
-  padding-top: 60px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-}
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">MENU</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="maxrebcalc.html">Max Rebirth Calculator</a></li>
+      <li><a href="bosses&npcs.html">Bosses & NPCs</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Maps (WIP)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forms (WIP)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Gamepasses (WIP)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Credits (WIP)</a></li>
+    </ul>
+  </div>
 
 
-.sidebar-header {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  padding: 1rem;
-  background-color: #222;
-  color: white;
-  text-align: center;
-  border-bottom: 10px solid #444;
-  height: 20px;
-  /* Ensure vertical centering if you're using flex */
-  font-weight: bold;
-  /* Make the text bold */
-  font-size: 1.6rem;
-  /* Optional: increase font size */
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 20px;
-}
-
-.sidebar ul li {
-  padding: 1rem;
-  text-align: center;
-  margin: -1rem -0.1rem;
-  border-radius: 8px;
-  transition: 0.1s;
-  overflow: hidden;
-  white-space: nowrap; /* prevent wrapping */
-  /* Make sure child a stays inside the rounded corners */
-}
+  <div class="container">
+    <h1>BOSSES<br />& NPCS</h1>
+    <h2 style="text-align: center; margin-bottom: 10px;">
+      Click on a row to see more information!<br>
+      <span style="font-size: 0.85em; color: #888;">*Double tap for mobile users</span>
+    </h2>
 
 
+    <table>
+      <thead>
+        <tr>
+          <th>Boss</th>
+          <th>Stat Requirements</th>
+          <th>Base Rewards</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Earth Section -->
+        <tr>
+          <td colspan="3" style="background-color: rgba(34,139,34,0.6); font-weight: bold; text-align: center;">«《 EARTH
+            》»</td>
+        </tr>
+        <tr>
+          <td>X Fighter</td>
+          <td>0</td>
+          <td>350</td>
+        </tr>
+        <tr>
+          <td>Roshi</td>
+          <td>875</td>
+          <td>1.9K</td>
+        </tr>
+        <tr>
+          <td>Kid Nohag</td>
+          <td>2.2K</td>
+          <td>3.8K</td>
+        </tr>
+        <tr>
+          <td>Radish</td>
+          <td>3.5K</td>
+          <td>8K</td>
+        </tr>
+        <tr>
+          <td>Mapa</td>
+          <td>8K</td>
+          <td>13K</td>
+        </tr>
+        <tr>
+          <td>Vegetable(Saya Saga)</td>
+          <td>20K</td>
+          <td>27K</td>
+        </tr>
+        <tr>
+          <td>Lord Sloog</td>
+          <td>37.5K</td>
+          <td>50K</td>
+        </tr>
+        <tr>
+          <td>Citizen</td>
+          <td>87.5K</td>
+          <td>90K</td>
+        </tr>
+        <tr>
+          <td>Chilly</td>
+          <td>225K</td>
+          <td>200K</td>
+        </tr>
+        <tr>
+          <td>No. 17</td>
+          <td>675K</td>
+          <td>400K</td>
+        </tr>
+        <tr>
+          <td>Perfect Atom</td>
+          <td>1.25M</td>
+          <td>900K</td>
+        </tr>
+        <tr>
+          <td>Z Broccoli</td>
+          <td>4.5M</td>
+          <td>1.5M</td>
+        </tr>
+        <tr>
+          <td>Super Boo</td>
+          <td>11.25M</td>
+          <td>3.2M</td>
+        </tr>
+        <tr>
+          <td>Kakata (SSJ)</td>
+          <td>60M</td>
+          <td>5.7M</td>
+        </tr>
+        <tr>
+          <td>Bills 1%</td>
+          <td>150M</td>
+          <td>12M</td>
+        </tr>
+        <tr>
+          <td>Golden Chilly</td>
+          <td>3.5B</td>
+          <td>50M</td>
+        </tr>
+        <tr>
+          <td>Merged Zamas</td>
+          <td>17.5B</td>
+          <td>95M</td>
+        </tr>
+        <tr>
+          <td>Broccoli</td>
+          <td>112.5B</td>
+          <td>165M</td>
+        </tr>
 
-.sidebar ul li a {
-  box-sizing: border-box;
-  color: white;
-  align-items: center;
-  justify-content: center;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
-  background-color: rgba(255, 101, 242, 0.3);
-  padding: 1rem 2rem;
-  text-decoration: none;
-  font-size: 1.1rem;
-  display: flex;
-  flex: 1;
-  /* allow a to fill li */
-  width: 100%;
-  /* Make the link fill the entire width */
-  height: 100%;
-  /* Make the link fill the entire height */
-  border-radius: 8px;
-}
+        <!-- Bills Planet Section -->
+        <tr>
+          <td colspan="3" style="background-color: rgba(128,0,128,0.6); font-weight: bold; text-align: center;">«《 BILLS
+            PLANET 》»</td>
+        </tr>
+        <tr>
+          <td>Jiran the Gray</td>
+          <td>10B</td>
+          <td>370M</td>
+        </tr>
+        <tr>
+          <td>Vegetable (Ultra Ego)</td>
+          <td>50B</td>
+          <td>800M</td>
+        </tr>
+        <tr>
+          <td>Black Frieza</td>
+          <td>600B</td>
+          <td>2.7B</td>
+        </tr>
+        <tr>
+          <td>Vills (TGOD)</td>
+          <td>2.5T</td>
+          <td>8.4B</td>
+        </tr>
+        <tr>
+          <td>Vis (UI)</td>
+          <td>15T</td>
+          <td>45B</td>
+        </tr>
+        <tr>
+          <td>Xicor</td>
+          <td>100T</td>
+          <td>140B</td>
+        </tr>
+        <tr>
+          <td>Wukong (SSJB3)</td>
+          <td>350T</td>
+          <td>400B</td>
+        </tr>
+        <tr>
+          <td>Kakata (Ego Instinct)</td>
+          <td>2QD</td>
+          <td>1.45T</td>
+        </tr>
 
-.sidebar ul li a:hover {
-  background-color: rgb(141, 0, 106);
-  transform: scale(1.05);
-}
+        <!-- NPC Section -->
+        <tr>
+          <td colspan="3" style="background-color: rgba(20, 196, 255, 0.6); font-weight: bold; text-align: center;">«《
+            NPCs 》»</td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Location</th>
+        </tr>
+        <tr>
+          <td>Appearance Changer</td>
+          <td>Allows you to change your appearance.</td>
+          <td>Earth</td>
+        </tr>
+        <tr>
+          <td>Bard</td>
+          <td>Allows you to switch side (Good/Bad).</td>
+          <td>Earth</td>
+        </tr>
+        <tr>
+          <td>Vis (Vills Planet)</td>
+          <td>Teleports you to Bills Planet.</td>
+          <td>Earth</td>
+        </tr>
+        <tr>
+          <td>Kito</td>
+          <td>Teleports you to Earth.</td>
+          <td>Bills Planet</td>
+        </tr>
 
-.sidebar ul li a:active {
-  background-color: rgba(255, 129, 224, 0.534);
-  transform: scale(0.95);
-}
-
-
-.hamburger {
-  width: 30px;
-  height: 25px;
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  z-index: 1100;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.hamburger:hover {
-  transform: scale(1.2);
-  /* Expand slightly on hover */
-}
-
-.hamburger:active {
-  transform: scale(0.9);
-  /* Shrink slightly on click */
-}
-
-.hamburger span {
-  display: block;
-  height: 4px;
-  background: white;
-  border-radius: 2px;
-}
-
-input[type="text"],
-button {
-  padding: 0.75rem 1rem;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  width: 260px;
-}
-
-input[type="text"] {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-input::placeholder {
-  color: white;
-}
-
-button {
-  background-color: rgba(0, 172, 23, 0.5);
-  color: white;
-  cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.3s;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  width: 160px;
-}
-
-button:hover {
-  background-color: #007c1b;
-  transform: scale(1.1);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-.result {
-  font-size: 1.2rem;
-  color: #00ffcc;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-}
-
-.notation-info,
-.reminder {
-  color: #ccc;
-  font-size: 0.95rem;
-  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-}
-
-.reminder {
-  font-size: 0.75rem;
-  width: 260px;
-  margin-top: 0;
-  background-color: rgba(255, 0, 149, 0.3);
-  /* semi-transparent red */
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  color: white;
-  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
-}
-
-.toggle-btn {
-  margin-top: 2rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-  background-color: rgba(172, 112, 0, 0.4);
-  color: white;
-  padding: 0.75rem 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  transition: transform 0.15s ease, background-color 0.3s;
-  width: 260px;
-}
-
-.toggle-btn:hover {
-  background-color: #ce7500;
-  transform: scale(1.1);
-}
-
-.toggle-btn:active {
-  transform: scale(0.95);
-}
-
-
-table {
-  width: 100%;
-  max-width: 800px;
-  margin-top: 0.5rem;
-  border-collapse: separate;
-  border-spacing: 0 6px;
-  text-align: center;
-  font-size: 1.2rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  overflow: hidden;
-  table-layout: fixed;
-}
-
-th,
-td {
-  padding: 0.75rem;
-  background-color: rgb(255, 255, 255, 0.05);
-  width: 16.66%;
-  word-wrap: break-word;
-}
-
-table tbody tr:hover {
-  height: 60px;
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-table tbody tr.clicked {
-  height: 40px !important;
-}
+      </tbody>
+    </table>
 
 
 
-table tbody tr {
-  transition: height 0.2s ease, background-color 0.2s ease;
-  height: 0px;
-  /* default height */
-  cursor: pointer;
-}
+    <div class="footer">
+      Made by Madao<br>
+      <a href="https://www.roblox.com/users/7651428300/profile" target="_blank">Roblox Profile</a><br>
+      <span style="opacity: 0.6;">(send me robux pls 🙏)</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const bossData = {
+      "X Fighter": {
+        realName: "X Fighter",
+        description: "An original Dragon Blox Ultimate character.",
+        dialogue: "Do you have what it takes?",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209158459129866/IMG_1005.png?ex=6805dbb6&is=68048a36&hm=9bb3f83e385459db7e043dc61abb1818acf00ea664e796d2f8805295fb46225d&=&format=webp&quality=lossless&width=849&height=860",
+        yesMessage: "Bring it on",
+        yesReply: "Good luck.",
+        noMessage: "No",
+        noReply: "Defeat 3 X Fighters!"
+      },
+      "Roshi": {
+        realName: "Master Roshi",
+        description: "Master Roshi, also known as the Turtle Hermit (or Turtle (Kame) in his youth) and God of Martial Arts, is a perverted hermit and a master of martial arts. He lives on his own isolated island called Kame House, where he may be willing to train students who travel to his doorstep. He is also the originator of the Kamehameha Wave.",
+        dialogue: "We'll spend this hour on good old napping. Work hard, study well and eat and sleep plenty... that's the turtle hermit way to learn.",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209316001124576/IMG_1013.png?ex=6805dbdc&is=68048a5c&hm=69f4f8f3dd0a1fedd751bfcafa4b746b898a2f1bcbdfaa8b512dd0a3f77957c4&=&format=webp&quality=lossless&width=748&height=856",
+        yesMessage: "Yes",
+        yesReply: "Please train me oh wise master!",
+        noMessage: "No",
+        noReply: "Defeat Roshi"
+      },
+      "Kid Nohag": {
+        realName: "Kid Gohan",
+        description: "Son Gohan is a half-breed Saiyan and one of the most prominent characters in the Dragon Ball series. He is the elder son of the series' primary protagonist Goku and his wife Chi-Chi, the older brother of Goten, the husband of Videl and father to Pan. He is named after Goku's adoptive grandfather, Gohan.",
+        dialogue: "Hey, do you want to spar with me?",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209157271883958/IMG_1006.png?ex=6805dbb6&is=68048a36&hm=66d5297f23403e2d4c1129ee08112c7e7c4b6351b2a4c839617951d59cbc9642&=&format=webp&quality=lossless&width=916&height=858",
+        yesMessage: "Bring it on",
+        yesReply: "Over here!",
+        noMessage: "No",
+        noReply: "Maybe next time?",
+        quest: "Defeat Kid Nohag!"
+      },
+      "Radish": {
+        realName: "Raditz",
+        description: "Raditz, also known as \"Raditz the Runt\", is a mid-class Saiyan warrior, the older brother of Goku and the first-born son of Bardock and Gine. He is one of the few remaining full-blooded Saiyans left alive after his homeworld was destroyed. He seeks out Goku in order to recruit him into the Frieza Force to aid in conquering planets.",
+        dialogue: "We saiyans are the mightiest warriors in the universe! You stand no chance against me!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        yesMessage: "Bring it on",
+        yesReply: "Hahahaha!",
+        noMessage: "No",
+        noReply: "Maybe next time?",
+        quest: "Defeat Radish!"
+      },
+      "Mapa": {
+        realName: "Nappa",
+        description: "Nappa is a mid-class Saiyan warrior from Planet Vegeta, and Vegeta's partner in combat. Prior to the destruction of Planet Vegeta, Nappa held the rank of general in the Saiyan Army and aide/partner to the young prince, Vegeta. After his race's demise, he, along with Vegeta and Raditz, worked as soldiers directly under Frieza, which led him to Earth.",
+        dialogue: "PREPARE YOURSELF",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209319968936237/IMG_0998.png?ex=6805dbdd&is=68048a5d&hm=311087246b4a42e419e4ad150cbaf40c8042b755b5fd4e794c33997be8954e29&=&format=webp&quality=lossless&width=919&height=858",
+        yesMessage: "Ok",
+        yesReply: "HAHAHAHA",
+        noMessage: "No",
+        noReply: "oh",
+        quest: "Defeat Mapa!"
+      },
+      "Vegetable(Saya Saga)": {
+        realName: "Vegeta (Saiyan Saga)",
+        description: "Vegeta, is the prince of the fallen Saiyan race and the husband of Bulma, the father of Trunks and Bulla, the eldest son of King Vegeta, as well as one of the main characters of the Dragon Ball series.<br><br>Regal, egotistical, and full of pride, Vegeta was once a ruthless, cold-blooded warrior and outright killer,[12] but later abandoned his position in the Frieza Force for a peaceful life on Earth. He would repeatedly fight alongside Universe 7's most powerful warriors in order to protect Earth and his family, as well as to surpass Goku in power.",
+        dialogue: "I, Vegeta, need a challenge! Do you wish to fight me, the prince of all saiyans?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209158098288801/IMG_1008.png?ex=6805dbb6&is=68048a36&hm=145df842208ef5dd5e80c74b4fb2cc12082e56a2292f8618072344405007ce88&=&format=webp&quality=lossless&width=988&height=858",
+        yesMessage: "Bring it on!",
+        yesReply: "Come with me.",
+        noMessage: "No",
+        noReply: "Weakling.",
+        quest: "Defeat the prideful Saiya prince!"
+      },
+      "Lord Sloog": {
+        realName: "Lord Slug",
+        description: "Slug, known as Lord Slug to himself and his underlings, is a Namekian, and the main antagonist of Dragon Ball Z: Lord Slug. It is explained that he is one of the Super Namekians and was sent to Planet Slug as a baby to escape the extinction that was about to ravage Namek. As he matured, the evil in his heart began to overwhelm his character thanks to a rare mutation unique to Namekians; this transformed him into a Super Namekian. Since then, he had gathered an army and became a conqueror of planets (in Funimation dub, he was banished from Planet Namek sometime around Age 261 along with other Super Namekians).",
+        dialogue: "Kneel before Sloog... the true ruler of the cosmos!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209316995170565/IMG_1015.png?ex=6805dbdc&is=68048a5c&hm=1cb616cae01101c17fbd559df020ca041d6df6284c489cb1537f27d9e1321905&=&format=webp&quality=lossless&width=769&height=858",
+        yesMessage: "Yes",
+        yesReply: "Don't blame me if you get hurt!",
+        noMessage: "No",
+        noReply: "Come on...",
+        quest: "Put an end to the evil namekian's reign of terror!"
+      },
+      "Citizen": {
+        realName: "Citizen",
+        description: "An original Dragon Blox Ultimate character.",
+        dialogue: "I heard some evil sayas landed near the city! They must be in the canyons behind me! Stop them from taking over Earth!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209331264327952/IMG_0999.png?ex=6805dbdf&is=68048a5f&hm=2ff6a9eadf5be7f441f1f89f0309c6f933e3e33045d97621cf0d1cfadb1e9a43&=&format=webp&quality=lossless&width=954&height=858",
+        yesMessage: "Yes",
+        yesReply: "Good luck!",
+        noMessage: "No",
+        noReply: ":(",
+        quest: "Defeat the 5 Ancient Saiyas!"
+      },
+      "Chilly": {
+        realName: "Frieza",
+        description: "Frieza is a major antagonist in the Dragon Ball franchise. He is the descendant of Chilled, the younger son of King Cold, the younger brother of Cooler and the father of Kuriza.<br><br>Inheriting his father's imperialist army and rising to power as the emperor of Universe 7 at a young age, Frieza quickly established himself as a ruthless tyrant, feared across the universe for his unparalleled cruelty and power. Ever since his invasion of Namek, Frieza has been the series' most recurring villain, clashing with his archnemesis Goku and his allies on several occasions, becoming even more powerful every time.",
+        dialogue: "I'm going to get my revenge and destroy this place! Hohoho! Do you think YOU can stop me?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209318597398848/IMG_1018.png?ex=6805dbdc&is=68048a5c&hm=9901b77ae0f30873acffd1a2fb0a644a693765f2720d41769f4456022023eb37&=&format=webp&quality=lossless&width=774&height=858",
+        yesMessage: "Easy",
+        yesReply: "Very well!",
+        noMessage: "No",
+        noReply: "That's what I thought!",
+        quest: "Stop the space emporor's evil reign!"
+      },
+      "No. 17": {
+        realName: "Android 17",
+        description: "Android 17, Lapis when he was an ordinary human, is the younger twin brother of Android 18 and Dr. Gero's seventeenth android creation, designed to serve Gero's vendetta against Goku. Despite his interests not initially deviating from this expectation, Android 17 takes it upon himself to kill Dr. Gero, who is uncooperative with Android 18's curiosity in activating Android 16 and deemed inferior by 17.",
+        dialogue: "Looks like this place is a great place to wreck havoc...",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209319012892809/IMG_1012.png?ex=6805dbdc&is=68048a5c&hm=eacec95cb12c8b4e4261f3c54598105b85e919ba77082b6f798df58280c9b807&=&format=webp&quality=lossless&width=759&height=858",
+        yesMessage: "I will stop you!",
+        yesReply: "HAHA! I'D LIKE TO SEE YOU TRY!!!",
+        noMessage: "It's all you...",
+        noReply: "Alright, but don't get in my way.",
+        quest: "Put an end to the evil android!"
+      },
+      "Perfect Atom": {
+        realName: "Perfect Cell",
+        description: "Cell is the ultimate creation of Dr. Gero, designed via cell recombination using the genetics of the greatest fighters that the Remote Tracking Device could find on Earth. The result was a \"perfect warrior\", possessing numerous favorable genetic traits and special abilities from Goku, Vegeta, Piccolo, Frieza and King Cold.<br><br>He was one of the few Red Ribbon Androids not directly completed by Dr. Gero, instead being completed by Dr. Gero's Supercomputer in an alternate timeline. After achieving perfection, he sought to dominate the world through fear of his incredible power. He is the main antagonist of the overarching Cell Saga.",
+        dialogue: "I need to test this perfect power before the tournament....",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209316538253484/IMG_1014.png?ex=6805dbdc&is=68048a5c&hm=4c8eaeedd7cfbd5653f714f0ff6b557f22d23ae6e017007247a3fdb66064d687&=&format=webp&quality=lossless&width=730&height=858",
+        yesMessage: "Bring it on!",
+        yesReply: "Yes!",
+        noMessage: "No",
+        noReply: "I didn't want to fight you anyway.",
+        quest: "Defeat the out of control legendary Saiya!"
+      },
+      "Z Broccoli": {
+        realName: "Z Broly",
+        description: "Broly is the main antagonist in the Broly Triple Threat trilogy. He appears to be the latest of the Legendary Super Saiyans who appear every one thousand years.",
+        dialogue: "KAKAROT!!!!!!!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363403508765818891/IMG_1020.png?ex=6805e7f7&is=68049677&hm=881b8e0d7006976b8afdfcee69f0847012b4a4c4f4c064d9c949e6b9a1d9db60&=&format=webp&quality=lossless&width=779&height=860",
+        yesMessage: "Calm down you murderous monster!",
+        yesReply: "KAKAAAAAAAAAAROOOOOOOOOOOOOOOOT!!!!!!!",
+        noMessage: "No",
+        noReply: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH",
+        quest: "Stop the wrath of the legendary Saiya!"
+      },
+      "Super Boo": {
+        realName: "Super Buu",
+        description: "Super Buu, also called Majin Buu (Evil), is the result of Evil Buu eating Good Buu in a chocolate form. This new Majin Buu has tremendously more power and increased mental capacity than the previous incarnation. In this form, Buu has very little patience and extremely dangerous fits of rage, even possessing the power to rip through dimensional walls if angered enough. He is the main antagonist for the Fusion Saga.",
+        dialogue: "I WILL TURN YOU ALL TO CANDY!!!! MWAHAHAHAHHAA!!!!!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209156928208956/IMG_1007.png?ex=6805dbb6&is=68048a36&hm=28031b9dd79de5689721665a271f2d991daa65c503db7b78ac0bd9bd8f84b825&=&format=webp&quality=lossless&width=1000&height=860",
+        yesMessage: "Yes",
+        yesReply: "Candy...",
+        noMessage: "No",
+        noReply: "RAAAAAAAAAAAAAAAAAH!",
+        quest: "Defeat the evil majin!"
+      },
+      "Kakata (SSJ)": {
+        realName: "Vegito (SSJ)",
+        description: "Vegito, also known as Vegerot in the Viz English manga, is the resulting fusion between Goku and Vegeta by the use of the Potara earrings. Vegito wields tremendous power, and like his Fusion Dance counterpart Gogeta, he is regarded as one of the mightiest warriors in the entire Dragon Ball franchise.<br><br>Vegito first appeared at the end of \"Union of Rivals\" to start battling with Super Buu, with his second appearance in the next episode \"Meet Vegito\" as the main protagonist throughout the entire episode. His debut in Dragon Ball Super was many years later to fight and attempt to defeat Fused Zamasu, though they quickly defused due to over-usage of power.",
+        dialogue: "I am the ultimate fusion, Vegito! I need a warm-up! Do you have what it takes?",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209157628657695/IMG_1009.png?ex=6805dbb6&is=68048a36&hm=f104ef9e1299ab5612b7ac3ad0884039fbf7d5ee1652ec7c46944b5f034caa25&=&format=webp&quality=lossless&width=939&height=860",
+        yesMessage: "Yes",
+        yesReply: "Don't blame me if you get hurt!",
+        noMessage: "No",
+        noReply: "Come on...",
+        quest: "Handel the combined strenggth of angels and gods in one being!"
+      },
+      "Bills 1%": {
+        realName: "Beerus",
+        description: "Beerus is the God of Destruction of Universe 7. He is accompanied by his martial arts teacher and attendant, Whis. Beerus' twin brother is Champa, the God of Destruction of Universe 6.<br><br>Beerus is the main antagonist of the Dragon Ball Z: Battle of Gods film and the God of Destruction Beerus Saga but becomes a supporting character in later sagas.",
+        dialogue: "I'm bored.. I need someone to fight! Are you strong?",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209158928764968/IMG_1003.png?ex=6805dbb6&is=68048a36&hm=6d4ef4346537eb09c2c762e39938701d30beb83b48dab27880d83ae7923652d5&=&format=webp&quality=lossless&width=830&height=860",
+        yesMessage: "Yeah!",
+        yesReply: "THEN COME FIGHT ME",
+        noMessage: "No",
+        noReply: "I'll destroy your planet",
+        quest: "Give the God of Destruction a good sparring match!"
+      },
+      "Golden Chilly": {
+        realName: "Golden Frieza",
+        description: "Golden Frieza is the Ultimate Evolution of the Frieza Race. It was first created and named by Frieza himself. This transformation is achieved by Frieza through vigorous training methods due to his obsessive need for revenge against Goku, as Frieza is a natural prodigy in terms of power, he never trained prior to his endeavor to defeat Goku.<br><br>Unlike the other forms that are able to be used constantly and are for power-suppression, this form is an acquired, non-permanent transformation used to power up.",
+        dialogue: "I am reborn as new! I will take my vengeance and conquer!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209317611868552/IMG_1016.png?ex=6805dbdc&is=68048a5c&hm=32a6b905b9ed1d6d14165df3fa461581d3bb8afa23fc9cf926ede4d804e2e091&=&format=webp&quality=lossless&width=846&height=858",
+        yesMessage: "No you won't!",
+        yesReply: "Hohoho! Try and stop me!",
+        noMessage: "Fine with me...",
+        noReply: "I'll keep looking",
+        quest: "Put a stop to the vengeful space empoeror once again!"
+      },
+      "Merged Zamas": {
+        realName: "Fused Zamasu",
+        description: "Fused Zamasu, (known as Merged Zamasu in the anime and God Zamas in the Viz manga) usually just referred to as Zamasu, is a Potara fusion born of the union between Goku Black (the original present Zamasu in the original present Goku's body) and Future Zamasu. He is the final antagonist of the \"Future\" Trunks Saga.",
+        dialogue: "I am justice given form! I am the world! Now venerate the most noble, most splendid, immortal, and supremely powerful god: Zamas!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209159251595376/IMG_1002.png?ex=6805dbb6&is=68048a36&hm=b0da4803aa43fc57de3ca4857fa9e3c4030fc3c65d7365b48d29d0195dcd17b1&=&format=webp&quality=lossless&width=835&height=860",
+        yesMessage: "I will not let you kill all mortals!",
+        yesReply: "YOU WILL NOT STOP ME",
+        noMessage: "Alright...",
+        noReply: "You must be scared.",
+        quest: "Stop the Zero Mortals Plan!"
+      },
+      "Broccoli": {
+        realName: "Super Broly",
+        description: "Broly is the main antagonist in the Broly Triple Threat trilogy. He appears to be the latest of the Legendary Super Saiyans who appear every one thousand years.",
+        dialogue: "BROCCOLI... HEALTHY... AHHHH",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209318085689514/IMG_1017.png?ex=6805dbdc&is=68048a5c&hm=c8ea7c68c5264c38fa984b98c00317b430fb3aacfbffd643fec32e1507bb8b13&=&format=webp&quality=lossless&width=846&height=858",
+        yesMessage: "Maximum Power!",
+        yesReply: "AAAHHHHHH",
+        noMessage: "No",
+        noReply: "oh",
+        quest: "Defeat the out of control legendary Saiya!"
+      },
+      "Jiran the Gray": {
+        realName: "Jiren",
+        description: "Jiren, also known as Jiren the Gray, is the most powerful member of the Pride Troopers. An extraordinary powerful being, Jiren is considered to be one of the strongest mortals in all of the multiverse, outclassing even his Universe's God of Destruction. He is a quiet and honorable fighter, who believes in strength and justice. He previously did not trust anyone and never considered teamwork at all during battle, opting to fight enemies alone, and single-handedly almost always winning.<br><br>Jiren served as the main fighting antagonist in the Universe Survival Saga and as a major contestant in the Tournament of Power.",
+        dialogue: "Hey! You think you're stronger than me?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        yesMessage: "Ok",
+        yesReply: "HAHAHAHA",
+        noMessage: "No",
+        noReply: "oh"
+      },
+      "Vegetable (Ultra Ego)": {
+        realName: "Vegeta (Ultra Ego)",
+        description: "Ultra Ego is a powerful divine transformation used by Vegeta that utilizes the Ultra Ego ability and the power of destruction.<br><br>This state is attained by one who has received a proper God of Destruction training and has gained the ability to use the powers of one. However, the state can only be utilized when the user is in the right mindset to act as a Destroyer. Vegeta at one point during his fight with Granolah described the form as a polar opposite to Ultra Instinct. A user of this state gains the power of destruction.<br><br>Ultra Ego is the strongest form Vegeta has appeared in. Ultra Ego changes its user's ki to become the same as that of a God of Destruction and its user's power grows without limit through instinct as their fighting spirit increases.",
+        dialogue: "Hey! You think you're stronger than me?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        yesMessage: "Ok",
+        yesReply: "HAHAHAHA",
+        noMessage: "No",
+        noReply: "oh"
+      },
+      "Black Frieza": {
+        realName: "Black Frieza",
+        description: "The possibility of Frieza reaching a new form or level of power was first brought up by Vegeta in Dragon Ball Super: Broly, with the threat of such an occurrence being the prince's reason for training.<br><br>According to Toyotarou, the reason Frieza's new form was colored black is because it is the only one that could stand above the gold. He jokingly compared it to a black credit card which is ranked higher than a gold one.",
+        dialogue: "Hey! You think you're stronger than me?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        yesMessage: "Ok",
+        yesReply: "HAHAHAHA",
+        noMessage: "No",
+        noReply: "oh"
+      },
+      "Vills (TGOD)": {
+        realName: "Beerus",
+        description: "Beerus is the God of Destruction of Universe 7. He is accompanied by his martial arts teacher and attendant, Whis. Beerus' twin brother is Champa, the God of Destruction of Universe 6.<br><br>Beerus is the main antagonist of the Dragon Ball Z: Battle of Gods film and the God of Destruction Beerus Saga but becomes a supporting character in later sagas.",
+        dialogue: "Hey! You think you're stronger than me?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        yesMessage: "Ok",
+        yesReply: "HAHAHAHA",
+        noMessage: "No",
+        noReply: "oh"
+      },
+      "Vis (UI)": {
+        realName: "Super Broly",
+        description: "Whis is the Guide Angel Attendant of Universe 7's God of Destruction, Beerus, as well as his Martial Arts teacher. Along with the other angels, he is a child of the Grand Minister. Like all attendants, he is bound to the service of his deity and usually does not leave Beerus unaccompanied.",
+        dialogue: "Hey! You think you're stronger than me?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        yesMessage: "Ok",
+        yesReply: "HAHAHAHA",
+        noMessage: "No",
+        noReply: "oh"
+      },
+      "Xicor": {
+        realName: "Xicor",
+        description: "Xicor, also known as Zaiko, is the main antagonist of Toyble's Dragon Ball AF. He is the actual youngest son of Goku, due to deceitfulness and trickery casted by the vengeful Western Supreme Kai. Thus making him part Saiyan and part Kai. *A Saiyan God* in other terms. Xicor goes to Earth years after Son Goku's departure with Shenron, with his mother, to seek out the strongest, gain position of ruler of the Earth, and to meet his father.",
+        dialogue: "Hey! You think you're stronger than me?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        yesMessage: "Ok",
+        yesReply: "HAHAHAHA",
+        noMessage: "No",
+        noReply: "oh"
+      },
+      "Wukong (SSJB3)": {
+        realName: "Goku (SSJB3)",
+        description: "Son Goku, born Kakarot, is a Saiyan raised on Earth and the main protagonist of the Dragon Ball series. He is the second-born son and youngest child of Bardock and Gine, the husband of Chi-Chi, and the father of Gohan and Goten. Originally sent to Earth by his parents as an infant, Kakarot was adopted by Grandpa Gohan and renamed Son Goku. A head injury at an early age altered Goku's memory, ridding him of his initial destructive nature and allowing him to grow up to become one of Earth's greatest defenders. Goku constantly strives and trains to be the greatest warrior that he can possibly be, which has kept the Earth and the universe safe from destruction multiple times.",
+        dialogue: "Hey! You think you're stronger than me?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        yesMessage: "Ok",
+        yesReply: "HAHAHAHA",
+        noMessage: "No",
+        noReply: "oh",
+        quest: ""
+      },
+      "Kakata (Ego Instinct)": {
+        realName: "Vegito (Ego Instinct)",
+        description: "Vegito, also known as Vegerot in the Viz English manga, is the resulting fusion between Goku and Vegeta by the use of the Potara earrings. Vegito wields tremendous power, and like his Fusion Dance counterpart Gogeta, he is regarded as one of the mightiest warriors in the entire Dragon Ball franchise.<br><br>Vegito first appeared at the end of \"Union of Rivals\" to start battling with Super Buu, with his second appearance in the next episode \"Meet Vegito\" as the main protagonist throughout the entire episode. His debut in Dragon Ball Super was many years later to fight and attempt to defeat Fused Zamasu, though they quickly defused due to over-usage of power.",
+        dialogue: "Hey! You think you're stronger than me?!",
+        image: "https://media.discordapp.net/attachments/1363122068035469342/1363209330899550238/IMG_1001.png?ex=6805dbdf&is=68048a5f&hm=ef7e003b8463615504a984b270c9e5ce17f5283b1914cda41eb63fa23410317d&=&format=webp&quality=lossless&width=841&height=858",
+        yesMessage: "Ok",
+        yesReply: "HAHAHAHA",
+        noMessage: "No",
+        noReply: "oh"
+      },
+      // Add more bosses like this...
+    };
+
+    const $ = id => document.getElementById(id);
+
+    const table = document.querySelector("table");
+    let infoRow; // the full <tr> for the sliding box
+    let wrapperDiv; // the div with slide animation
+    let currentRow; // currently selected row
+
+    const createInfoRow = (row, label) => {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.setAttribute("colspan", "3");
+
+      wrapperDiv = document.createElement("div");
+      wrapperDiv.className = "info-box-wrapper";
+
+      const innerDiv = document.createElement("div");
+      innerDiv.className = "info-box";
+
+      // Top row with two images
+      const topDiv = document.createElement("div");
+      topDiv.className = "info-top";
+
+      const bossInfo = bossData[label] || {
+        realName: label,
+        description: "No description available.",
+        dialogue: "...",
+        quest: "..."
+      };
+
+      const img1 = document.createElement("img");
+      img1.src = bossInfo.image || "fallback/image/url.png";
+      img1.alt = label;
 
 
-.footer {
-  margin-top: 1rem;
-  color: white;
-  text-shadow: 0 0 10px black;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.footer a {
-  color: #00bfff;
-  text-decoration: underline;
-}
-
-.center-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 70vh;
-  z-index: 1;
-  padding: 2rem;
-}
-
-.center-content p {
-  font-size: 1.2rem;
-  color: #ccc;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  max-width: 600px;
-}
-
-.nav-buttons {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-
-.nav-buttons a {
-  padding: 0.75rem 1.5rem;
-  background-color: rgba(255, 101, 242, 0.5);
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  text-shadow: 1px 1px 2px black;
-  font-weight: bold;
-  transition: transform 0.15s ease, background-color 0.3s;
-  width: 260px;
-  text-align: center;
-}
+      topDiv.appendChild(img1);
 
 
-.nav-buttons a:hover {
-  background-color: rgb(141, 0, 106);
-  transform: scale(1.1);
-}
+      // Bottom row with text
+      const bottomDiv = document.createElement("div");
+      bottomDiv.className = "info-bottom";
 
-.nav-buttons a:active {
-  transform: scale(0.95);
-}
+ 
 
-.info-box {
-  display: flex;
-  flex-direction: column; /* Switch to vertical layout */
-  padding: 20px;
-  background-color: rgba(179, 179, 179, 0.1);
-  border-radius: 16px;
-  text-align: left;
-  gap: 20px;
-}
+      const baseReward = row?.children[2]?.innerText || "N/A";
+      const statReq = row?.children[1]?.innerText || "N/A";
 
-/* Top row with two images side by side */
-.info-top {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
+      bottomDiv.innerHTML = `
+        <div style="background-color: rgba(245, 17, 230,0.1); padding: 10px 10px; border-radius: 5px; font-weight: bold;">
+          Real Name: ${bossInfo.realName}
+        </div><br>
 
-.info-top img {
-  width: 100%;
-  max-width: 20rem;
-  border-radius: 8px;
-  object-fit: contain;
-  height: auto; /* make sure it keeps aspect ratio */
-  display: block; /* optional: removes inline spacing */
-  margin: 0 auto; /* optional: centers it */
-}
+        <div style="background-color: rgba(54, 215, 247,0.1); padding: 10px 10px; border-radius: 5px;">
+          <strong>Description:</strong><br>
+          ${bossInfo.description}
+        </div><br>
 
-/* Bottom row with text */
-.info-bottom {
-  font-size: .9rem;
-  line-height: 1.5;
-}
+        <div style="background-color: rgba(194, 194, 194,0.1); padding: 10px 10px; border-radius: 5px;">
+          <strong>Dialogue:</strong> "${bossInfo.dialogue}"<br><br>
+          &emsp;<strong>Player[Yes]:</strong> "${bossInfo.yesMessage}"<br>
+          &emsp;&emsp;<strong>${label}:</strong> "${bossInfo.yesReply}"<br><br>
+          &emsp;<strong>Player[No]:</strong> "${bossInfo.noMessage}"<br>
+          &emsp;&emsp;<strong>${label}:</strong> "${bossInfo.noReply}"<br>
+        </div><br>
 
-.info-box-wrapper {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  padding: 0 20px;
-}
+         <div style="background-color: rgba(193, 240, 38,0.1); padding: 10px 10px; border-radius: 5px;">
+          <strong>Quest:</strong> ${bossInfo.quest || "Unknown"}<br>
+          <strong>Base Reward:</strong> ${baseReward}<br>
+          <strong>Stat Requirements:</strong> ${statReq}
+        </div><br>
+      `;
 
-/* When open, allow it to expand */
-.info-box-wrapper.open {
-  max-height: 1200px; /* Should be high enough to fit the content */
-  padding: 20px;
-}
 
-@media (max-width: 600px) {
+      innerDiv.appendChild(topDiv);
+      innerDiv.appendChild(bottomDiv);
 
-  table,
-  th,
-  td {
-    font-size: 1rem;
-  }
+      wrapperDiv.appendChild(innerDiv);
+      td.appendChild(wrapperDiv);
+      tr.appendChild(td);
 
-  h1 {
-    font-size: 2.5rem;
-  }
+      return tr;
+    };
 
-  input[type="text"],
-  button {
-    width: 90%;
-    font-size: 1rem;
-  }
+    const handleRowClick = (row, label) => {
+      const insertNewInfoBox = () => {
+        infoRow = createInfoRow(row, label); // pass in row directly
+        row.parentNode.insertBefore(infoRow, row.nextSibling);
+        setTimeout(() => {
+          wrapperDiv.classList.add("open");
+        }, 10);
+        currentRow = row;
+      };
 
-  .container {
-    padding: 1rem;
-    gap: 0.75rem;
-  }
+      if (infoRow && currentRow === row) {
+        wrapperDiv.classList.remove("open");
+        setTimeout(() => {
+          if (infoRow.parentNode) infoRow.remove();
+          infoRow = null;
+          currentRow = null;
+        }, 300);
+        return;
+      }
 
-  .notation-info {
-    font-size: 0.85rem;
-    padding: 0.5rem 0.75rem;
-  }
+      if (infoRow && infoRow.parentNode) {
+        wrapperDiv.classList.remove("open");
+        setTimeout(() => {
+          if (infoRow.parentNode) infoRow.remove();
+          insertNewInfoBox();
+        }, 300);
+      } else {
+        insertNewInfoBox();
+      }
+    };
 
-  .result {
-    font-size: 1rem;
-  }
+    Object.values(bossData).forEach(boss => {
+      if (boss.image) {
+        const img = new Image();
+        img.src = boss.image;
+      }
+    });
+    const rows = table.querySelectorAll("tbody tr");
 
-  .info-bottom {
-    font-size: 0.6rem;
-  }
-}
+    rows.forEach(row => {
+      const isTitleRow = row.children.length === 1;
+      const label = isTitleRow
+        ? row.textContent.trim()
+        : row.children[0].textContent.trim();
+
+      row.style.cursor = "pointer";
+      row.addEventListener("click", () => handleRowClick(row, label));
+    });
+
+    
+  </script>
+
+
+
+</body>
+
+</html>

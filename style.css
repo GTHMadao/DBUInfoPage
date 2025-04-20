@@ -353,49 +353,47 @@ table tbody tr {
   transform: scale(0.95);
 }
 
-.info-box-wrapper {
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  max-height: 0;
-}
-
-.info-box-wrapper.open {
-  max-height: 800px;
-  /* adjust as needed */
-}
-
 .info-box {
   display: flex;
-  /* <-- Add this */
+  flex-direction: column; /* Switch to vertical layout */
   padding: 20px;
   background-color: rgba(179, 179, 179, 0.1);
+  border-radius: 16px;
   text-align: left;
-  height: 100%;
-  /* full height inside the wrapper */
   gap: 20px;
-  /* spacing between image and text */
 }
 
-.info-left {
-  flex: 1;
+/* Top row with two images side by side */
+.info-top {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 20px;
 }
 
-.info-left img {
-  width: 100%;
-  max-width: 250px;
+.info-top img {
+  width: 20rem;
   border-radius: 8px;
   object-fit: contain;
 }
 
-.info-right {
-  flex: 2;
-  font-size: 14px;
+/* Bottom row with text */
+.info-bottom {
+  font-size: 16px;
   line-height: 1.5;
 }
 
+.info-box-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 20px;
+}
+
+/* When open, allow it to expand */
+.info-box-wrapper.open {
+  max-height: 1000px; /* Should be high enough to fit the content */
+  padding: 20px;
+}
 
 @media (max-width: 600px) {
 

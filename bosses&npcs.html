@@ -203,7 +203,8 @@
           <td>1.45T</td>
         </tr>
 
-        <td colspan="3" style="background-color: rgba(206, 9, 9, 0.6); font-weight: bold; text-align: center;">«《 EVENTS / SECRETS 》»</td>
+        <td colspan="3" style="background-color: rgba(206, 9, 9, 0.6); font-weight: bold; text-align: center;">«《 EVENTS
+          / SECRETS 》»</td>
         </tr>
         <tr>
           <td>Easter Bunny</td>
@@ -559,12 +560,13 @@
         quest: "..."
       };
 
-      const img1 = document.createElement("img");
-      img1.src = `images/${encodeURIComponent(label)}.png`;
+      const encodedLabel = encodeURIComponent(label);
+      img1.src = `https://raw.githubusercontent.com/GTHMadao/gthmadao.github.io/main/images/${encodedLabel}.png`;
       img1.alt = label;
       img1.onerror = () => {
-        img1.src = "images/fallback.png"; // optional fallback image
+        img1.src = "images/fallback.png"; // Local fallback if raw link fails
       };
+
 
 
       topDiv.appendChild(img1);

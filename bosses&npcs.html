@@ -560,13 +560,11 @@
       };
 
       const img1 = document.createElement("img");
-      const encodedLabel = encodeURIComponent(label);
-      img1.src = `https://raw.githubusercontent.com/GTHMadao/gthmadao.github.io/main/images/${encodedLabel}.png`;
+      img1.src = `https://gthmadao.github.io/images/${encodeURIComponent(label)}.png`;
       img1.alt = label;
       img1.onerror = () => {
-        img1.src = "images/fallback.png"; // Local fallback if raw link fails
+        img1.src = "images/fallback.png"; // optional fallback image
       };
-
 
 
       topDiv.appendChild(img1);

@@ -203,7 +203,8 @@
           <td>1.45T</td>
         </tr>
 
-        <td colspan="3" style="background-color: rgba(206, 9, 9, 0.6); font-weight: bold; text-align: center;">«《 EVENTS / SECRETS 》»</td>
+        <td colspan="3" style="background-color: rgba(206, 9, 9, 0.6); font-weight: bold; text-align: center;">«《 EVENTS
+          / SECRETS 》»</td>
         </tr>
         <tr>
           <td>Easter Bunny</td>
@@ -560,7 +561,13 @@
       };
 
       const img1 = document.createElement("img");
-      img1.src = `https://gthmadao.github.io/images/${encodeURIComponent(label)}.png`;
+
+      // Force lowercase before encoding
+      const imageName = encodeURIComponent(label.toLowerCase());
+
+      img1.src = `https://gthmadao.github.io/images/${imageName}.png`;
+      console.log(img1.src);
+
       img1.alt = label;
       img1.onerror = () => {
         img1.src = "images/fallback.png"; // optional fallback image
@@ -669,13 +676,10 @@
       }
     };
 
-    Object.values(bossData).forEach(boss => {
-      if (boss.image) {
-        const img = new Image();
-        img.src = boss.image;
-      }
-    });
     const rows = table.querySelectorAll("tbody tr");
+
+    // Keep track of preloaded image URLs to avoid duplicates
+    const preloadedImages = new Set();
 
     rows.forEach(row => {
       const isTitleRow = row.children.length === 1;
@@ -683,6 +687,18 @@
         ? row.textContent.trim()
         : row.children[0].textContent.trim();
 
+      // Lowercase the label for filename matching (if your image filenames are all lowercase)
+      const imageName = encodeURIComponent(label.toLowerCase());
+      const imageUrl = `https://gthmadao.github.io/images/${imageName}.png`;
+
+      // Preload image only once
+      if (!preloadedImages.has(imageUrl)) {
+        const img = new Image();
+        img.src = imageUrl;
+        preloadedImages.add(imageUrl);
+      }
+
+      // Setup row click behavior
       row.style.cursor = "pointer";
       row.addEventListener("click", () => handleRowClick(row, label));
     });

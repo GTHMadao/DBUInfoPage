@@ -290,7 +290,7 @@ table tbody tr {
 }
 
 .highlight-gold {
-  background-color: rgba(255,215,0,0.2);
+  background-color: rgba(255,215,0,0.1);
 }
 
 .highlight-red {
@@ -407,55 +407,6 @@ table tbody tr {
   padding: 20px;
 }
 
-.robloxposter {
-  position: fixed;
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-  padding: 10px;
-  font-weight: bold;
-  font-family: sans-serif;
-  z-index: 999;
-  display: flex;
-  width: 20rem;
-  height: 10rem;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  font-size: 1.3rem;
-}
-
-.robloxposter-top-left {
-  top: 5rem;
-  left: 5rem;
-}
-
-.robloxposter-top-right {
-  top: 5rem;
-  right: 5rem;
-}
-
-.robloxposter-bottom-left {
-  bottom: 5rem;
-  left: 5rem;
-}
-
-.robloxposter-bottom-right {
-  bottom: 5rem;
-  right: 5rem;
-}
-
-.robloxposter-middle-left {
-  top: 50%;
-  left: 5rem;
-  transform: translateY(-50%);
-}
-
-.robloxposter-middle-right {
-  top: 50%;
-  right: 5rem;
-  transform: translateY(-50%);
-}
 
 @media (max-width: 600px) {
 

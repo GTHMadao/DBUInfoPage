@@ -12,7 +12,7 @@
     gtag('config', 'G-JD6DWDXVWQ');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7376740892139127"
-  crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MaxRebCalc</title>
@@ -45,31 +45,36 @@
 
 
   <div class="container">
-    <h1>MAX REBIRTH<br />CALCULATOR<br />[--OUTDATED--]</h1>
+    <h1>MAX REBIRTH<br />CALCULATOR</h1>
     <div class="notation-info" id="notationInfo"></div>
 
-    <input id="powerInput" type="text" placeholder="Enter your current stats" />
-    <input id="rebirthRequirement" type="text" placeholder="Enter your rebirth requirement" />
+    <input id="currentRebirths" type="text" placeholder="Enter your current rebirths" />
+    <!-- <input id="rebirthRequirement" type="text" placeholder="Enter your rebirth requirement" />
     <button id="calculateBtn">MAX REBIRTH</button>
     <div class="result" id="resultText">You will gain +X rebirths and will be left with X stats after max rebbing.</div>
-
+-->
 
     <div style="display: flex; flex-direction: column; align-items: center;">
       <input id="desiredRebirths" type="text" placeholder="How many rebirths do you want?" />
-      <div class="reminder"><strong>INPUT YOUR REB REQUIREMENT FIRST!</strong></div>
+      <div class="reminder"><strong>INPUT YOUR CURRENT REBIRTHS FIRST!</strong></div>
     </div>
 
-    <div class="result" id="requiredStatsText">You will need X stats</div>
+    <div class="result" id="requiredStatsText">You will need X stats to get +X rebirths.</div>
 
     <div class="notation-info">
       The max rebirth formula is:
       <div style="margin-top: 4px; font-family: 'Courier New', monospace;">
-        Amount of Rebirths = log<sub>0.5</sub>(Rebirth Requirement / Stats)
+        Rebirth Requirement = 20,000,000 × ((R ≤ 90 ? R : 90)
+        + ((R - 90) × (R > 90))<sup>2.04</sup>
+        + ((R - 600) × (R > 600))<sup>2.43</sup>
+        + 1 )
       </div>
+
+
     </div>
 
     <div class="notation-info">
-      <strong>NOTE:</strong> Max rebirth is capped at 10 for non-gamepass holders.
+      <strong>NOTE:</strong> Max rebirth is capped at 10 for non-gamepass holders, and 25 for gamepass holders.
     </div>
 
     <div class="footer">
@@ -97,41 +102,42 @@
 
     $('notationInfo').textContent = `Supported notations: ${suffixes.join(', ')}`;
 
-    $('calculateBtn').onclick = () => {
-      const power = parseFormattedNumber($('powerInput').value);
-      const requirement = parseFormattedNumber($('rebirthRequirement').value);
-      const rebirths = Math.log(requirement / power) / Math.log(0.5);
-      let displayRebirths = 0;
-
-      if (isFinite(rebirths)) {
-        if (rebirths < 0) {
-          displayRebirths = 0;
-        } else if (Math.ceil(rebirths) === 0) {
-          displayRebirths = 1;
-        } else {
-          displayRebirths = Math.ceil(rebirths);
-        }
+    function calculateStatsForRebirths(currentRebirths, desiredGain) {
+      function statRequirement(n) {
+        const part1 = Math.min(n, 90);
+        const part2 = Math.pow(Math.min(Math.max(n - 90, 0), 600), 2.04);
+        const part3 = Math.pow(Math.max(n - 600, 0), 2.43);
+        return 20000000 * (part1 + part2 + part3 + 1);
       }
 
-      const finalStats = power * Math.pow(0.5, displayRebirths);
+      let totalStats = statRequirement(currentRebirths);
 
-      $('resultText').textContent = isFinite(rebirths) && isFinite(finalStats)
-        ? `You will gain +${displayRebirths} rebirth${displayRebirths !== 1 ? 's' : ''} and will be left with ${formatToNotation(finalStats)} stats after max rebbing.`
-        : 'Please enter valid numbers above.';
+      for (let i = 1; i < desiredGain; i++) {
+        const current = currentRebirths + i;
+        const prev = current - 1;
 
-    };
+        const required = statRequirement(current) - (statRequirement(prev) / 1.8); // 1.4x rebirth discount remains
+        totalStats += required;
+      }
 
+      return totalStats;
+    }
 
     $('desiredRebirths').oninput = () => {
-      const goal = parseFloat($('desiredRebirths').value);
-      const requirement = parseFormattedNumber($('rebirthRequirement').value);
-      $('requiredStatsText').textContent = (requirement > 0 && goal >= 0)
-        ? `You will need ${formatToNotation(requirement * 2 ** (goal - 1))} stats`
-        : 'You will need X stats';
+      const desiredGain = parseInt($('desiredRebirths').value);
+      const currentRebirths = parseInt($('currentRebirths').value);
+
+      if (isNaN(desiredGain) || isNaN(currentRebirths) || desiredGain <= 0 || currentRebirths < 0) {
+        $('requiredStatsText').textContent = 'Please enter valid rebirth values.';
+        return;
+      }
+
+      const neededStats = calculateStatsForRebirths(currentRebirths, desiredGain);
+      $('requiredStatsText').textContent = `You will need ${formatToNotation(neededStats)} stats to get +${desiredGain} rebirth${desiredGain !== 1 ? 's' : ''}.`;
     };
 
-
   </script>
+
 </body>
 
 </html>

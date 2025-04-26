@@ -54,13 +54,12 @@
     <div class="result" id="resultText">You will gain +X rebirths and will be left with X stats after max rebbing.</div>
 -->
 
-    <div style="display: flex; flex-direction: column; align-items: center;">
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <input id="currentRebirths" type="text" placeholder="Enter your current rebirths" />
-        <input id="desiredRebirths" type="text" placeholder="How many rebirths do you want?" />
-      </div>
-      <div class="reminder"><strong>INPUT YOUR CURRENT REBIRTHS FIRST!</strong></div>
-    </div>
+
+
+    <input id="currentRebirths" type="text" placeholder="Enter your current rebirths" />
+    <input id="desiredRebirths" type="text" placeholder="How many rebirths do you want?" />
+    <div class="reminder"><strong>INPUT YOUR CURRENT REBIRTHS FIRST!</strong></div>
+
 
 
     <div class="result" id="requiredStatsText">You will need X stats to get +X rebirths.</div>
@@ -120,7 +119,7 @@
       console.log(rebirthLevel)
 
       // First rebirth has no multiplier
-      totalStats = baseRequirement*(1.8**(desiredGain-1));
+      totalStats = baseRequirement * (1.8 ** (desiredGain - 1));
 
 
       return totalStats;

@@ -689,6 +689,11 @@ table tbody tr {
     height: 8rem;
   }
 
+  .image-description {
+    font-size: 0.8rem;
+  }
+  
+
   .buy-button {
     padding: 0.5rem 0.8rem;
     /* Smaller button on mobile */

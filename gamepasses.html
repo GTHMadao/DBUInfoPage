@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD6DWDXVWQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JD6DWDXVWQ');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7376740892139127"
+    crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gamepasses</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Hamburger Button -->
+  <div class="hamburger" id="toggleSidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">MENU</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="maxrebcalc.html">Max Rebirth Calculator</a></li>
+      <li><a href="bosses&npcs.html">Bosses & NPCs</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Maps (WIP)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forms & Masteries (WIP)</a></li>
+      <li><a href="gamepasses.html">Gamepasses</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Credits (WIP)</a></li>
+    </ul>
+  </div>
+
+
+  <div class="container">
+    <h1>GAMEPASSES</h1>
+    <h2 style="text-align: center; margin-bottom: -10px;">
+      A collection of all DBU gamepasses!<br>
+    </h2>
+
+    <div class="image-grid"></div>
+
+    <div class="footer">
+      Made by Madao<br>
+      <a href="https://www.roblox.com/users/7651428300/profile" target="_blank">Roblox Profile</a><br>
+      <span style="opacity: 0.6;">(send me robux pls 🙏)</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const gamepasses = [
+      {
+        image: "https://tr.rbxcdn.com/180DAY-dadfabfa834a6b3fb76fc055934c1fb5/420/420/Image/Png/noFilter",
+        title: "Strength Talent",
+        description: "+100% to Strength stat.",
+        price: "300",
+        link: "https://www.roblox.com/game-pass/6936360/Strength-Talent"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-aa0f65ac334823cc618b47a6f4702e6c/420/420/Image/Png/noFilter",
+        title: "Energy Talent",
+        description: "+100% to Energy stat.",
+        price: "300",
+        link: "https://www.roblox.com/game-pass/6936407/Energy-Talent"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-2187fc29ee722f8e9aecfee3bfa8ea97/420/420/Image/Png/noFilter",
+        title: "Speed Talent",
+        description: "+100% to Speed stat.",
+        price: "300",
+        link: "https://www.roblox.com/game-pass/6936444/Speed-Talent"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-e4db88b57263467a2d16faa85e978e2c/420/420/Image/Png/noFilter",
+        title: "Defense Talent",
+        description: "+100% to Defense stat.",
+        price: "300",
+        link: "https://www.roblox.com/game-pass/6936445/Defense-Talent"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-252fffde4eff3b8989034368dfe2a1da/420/420/Image/Png/noFilter",
+        title: "Kaioken Pack",
+        description: `Unlocks SSJ2 Kaioken, LSSJ Kaioken, Mystic Kaioken.<br><br>WARNING: You still need to meet the stat requirements to use the transformations!`,
+        price: "399",
+        link: "https://www.roblox.com/game-pass/6950449/Kaioken-Pack"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-7565811c2ad23a1eaa17135ff6f3e9ef/420/420/Image/Png/noFilter",
+        title: "GT+ Pack",
+        description: `Unlocks SSJG4, SSJB4, Big Bang Kamehameha<br><br>WARNING: You still need to meet the stat requirements to use the transformations and skills!`,
+        price: "999",
+        link: "https://www.roblox.com/game-pass/6950465/GT-Pack"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-46e0e124717a893af5ee20a3c1358311/420/420/Image/Png/noFilter",
+        title: "SSJ6",
+        description: `Unlocks SSJ6.<br><br>WARNING: You still need to meet the stat requirements to use the transformations!`,
+        price: "960",
+        link: "https://www.roblox.com/game-pass/6950469/SSJ6"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-c6630ceb8b5bccd1ce9d255e38158963/420/420/Image/Png/noFilter",
+        title: "Legendary Pack",
+        description: `Unlocks LSSJ2, LSSJ3, LSSJ4, LSSJB, LSSJ5.<br><br>WARNING: You still need to meet the stat requirements to use the transformations and skills!`,
+        price: "1500",
+        link: "https://www.roblox.com/game-pass/6951002/Legendary-Pack"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-6e108e47b3cbda0abab78cc0f7516533/420/420/Image/Png/noFilter",
+        title: "Faster Charge",
+        description: "Lets you charge your energy 2x faster!",
+        price: "450",
+        link: "https://www.roblox.com/game-pass/6952244/Faster-Charge"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-c993448a85d3da0cfc79c64fe1e6a295/420/420/Image/Png/noFilter",
+        title: "Double Zeni",
+        description: "This allows you to earn double the zeni you earn regularly! However, it does NOT work with Zeni purchased using roblox currency.",
+        price: "399",
+        link: "https://www.roblox.com/game-pass/6953025/Double-Zeni"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-2f5b1a550b89e3e84dac305943fcb145/420/420/Image/Png/noFilter",
+        title: "Super Broccoli",
+        description: `Gives you the Super Broccoli form!<br><br>WARNING: You still need to meet the stat requirements to use the transformations!`,
+        price: "1350",
+        link: "https://www.roblox.com/game-pass/7837022/Super-Broccoli"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-e71c6fad6f0b976371ce7ac986aa73a9/420/420/Image/Png/noFilter",
+        title: "God Package",
+        description: `Unlocks True G.O.D., True G.O.C., Destruction, Soul Punisher, and True SSJG.<br><br>WARNING: You still need to meet the stat requirements to use the transformations!`,
+        price: "799",
+        link: "https://www.roblox.com/game-pass/9848987/God-Package"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-d19053234b56143ff795e39a1dfa5241/420/420/Image/Png/noFilter",
+        title: "Angelic Training",
+        description: "Doubles Form mastery training speed!",
+        price: "1000",
+        link: "https://www.roblox.com/game-pass/120887097/Angelic-Training"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-8ab2013a9950f37061bc0395415ca75e/420/420/Image/Png/noFilter",
+        title: "Blanc",
+        description: `Unlocks the original beast form.<br><br>WARNING: You still need to meet the stat requirements to use the transformations!`,
+        price: "900",
+        link: "https://www.roblox.com/game-pass/676684901/Blanc"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-3f19f01d356c0f7c0ebc65b4f3d08017/420/420/Image/Png/noFilter",
+        title: "Corrupted Forms",
+        description: `Unlocks CSSJB, CSSJB2, CSSJB3.<br><br>WARNING: You still need to meet the stat requirements to use the transformations!`,
+        price: "500",
+        link: "https://www.roblox.com/game-pass/1097286366/Corrupted-Forms"
+      },
+      {
+        image: "https://tr.rbxcdn.com/180DAY-2cd7f246a3a03278f469a272a979a003/420/420/Image/Png/noFilter",
+        title: "Increased Multi-Rebirth",
+        description: `Increase rebirth cap from 10 to 25!<br>Halves rebirth cooldown!`,
+        price: "300",
+        link: "https://www.roblox.com/game-pass/1167830866/Increased-Multi-Rebirth"
+      }
+    ];
+
+
+    const container = document.querySelector(".image-grid");
+
+    gamepasses.forEach(pass => {
+      const card = document.createElement("div");
+      card.className = "image-card";
+
+      card.innerHTML = `
+        <img src="${pass.image}" alt="${pass.title}" class="main-image">
+        <div class="image-description">
+          <b>Description:</b> ${pass.description}<br>
+        </div>
+        <div class="bottom-section">
+          <div class="image-price">
+            <b>Price:</b> ${pass.price} 
+            <img src="https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/e/d/f/edfae9388da4cd8496b885a8a2df613372500d9c.png" alt="Robux" class="robux-icon">
+          </div>
+          <button class="buy-button">Buy</button>
+        </div>
+      `;
+
+      const button = card.querySelector(".buy-button");
+      button.addEventListener("click", () => {
+        window.open(pass.link, "_blank");
+      });
+
+      container.appendChild(card);
+    });
+  </script>
+</body>
+
+</html>

@@ -39,6 +39,7 @@ h1 {
   font-size: 4rem;
   color: rgb(255, 255, 255, 0.3);
   text-shadow: 0 0 26px rgba(0, 0, 0, 1);
+  width: 50vw;
 }
 
 .sidebar {
@@ -556,6 +557,65 @@ table tbody tr {
 }
 
 
+.language-dropdown {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  z-index: 1000;
+}
+
+
+.dropbtn {
+  background-color: rgb(0, 0, 0,0.3);
+  color: white;
+  padding: 10px 1rem;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background-color: rgb(0, 0, 0,0.8);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: rgb(249, 249, 249, .2);
+  min-width: 160px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1001;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.language-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.flag-icon {
+  width: 20px;
+  height: 15px;
+  margin-right: 8px;
+}
+
+
 
 @media (max-width: 600px) {
 
@@ -571,6 +631,11 @@ table tbody tr {
 
   input[type="text"],
   button {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .reminder {
     width: 90%;
     font-size: 1rem;
   }
@@ -599,5 +664,9 @@ table tbody tr {
 
   .video-wrapper {
     display: none;
+  }
+  
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

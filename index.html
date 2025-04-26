@@ -19,7 +19,8 @@
   <!-- SOCIAL MEDIA PREVIEW -->
   <meta property="og:title" content="DBU Info Page - Tools & Guides" />
   <meta property="og:description" content="Navigate through tools, calculators, and guides for DBU!" />
-  <meta property="og:image" content="https://tr.rbxcdn.com/180DAY-6409b4530cc879b6c4692b5a6118006d/768/432/Image/Webp/noFilter" />
+  <meta property="og:image"
+    content="https://tr.rbxcdn.com/180DAY-6409b4530cc879b6c4692b5a6118006d/768/432/Image/Webp/noFilter" />
   <meta property="og:url" content="https://gthmadao.github.io/" />
   <meta property="og:type" content="website" />
 
@@ -60,15 +61,32 @@
   <!-- Page Content -->
   <!-- Page Content -->
   <div class="center-content">
-    <h1>Welcome to the DBU Info Page</h1>
-    <p>Use the sidebar (top left) or buttons below to navigate to different tools and resources related to DBU.</p>
+    <h1 id="welcome-text">Welcome to the DBU Info Page</h1>
+    <p id="description-text">Use the sidebar (top left) or buttons below to navigate to different tools and resources
+      related to DBU.</p>
     <div class="nav-buttons">
-      <a href="maxrebcalc.html">Max Rebirth Calculator</a>
-      <a href="bosses&npcs.html">Bosses & NPCs</a>
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Maps (WIP)</a>
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forms & Masteries (WIP)</a>
-      <a href="gamepasses.html">Gamepasses</a>
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Credits (WIP)</a>
+      <a id="nav1" href="maxrebcalc.html">Max Rebirth Calculator</a>
+      <a id="nav2" href="bosses&npcs.html">Bosses & NPCs</a>
+      <a id="nav3" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Maps (WIP)</a>
+      <a id="nav4" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forms & Masteries (WIP)</a>
+      <a id="nav5" href="gamepasses.html">Gamepasses</a>
+      <a id="nav6" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Credits (WIP)</a>
+    </div>
+  </div>
+  
+  <!-- Language Dropdown -->
+  <div class="language-dropdown">
+    <button class="dropbtn">
+      🌐 Language ▼
+    </button>
+    <div class="dropdown-content">
+      <a href="#" onclick="setLanguage('en')">
+        <img src="https://flagcdn.com/us.svg" alt="English" class="flag-icon"> English
+      </a>
+      <a href="#" onclick="setLanguage('es')">
+        <img src="https://flagcdn.com/es.svg" alt="Español" class="flag-icon"> Español
+      </a>
+      <!-- You can add more languages here if you want -->
     </div>
   </div>
 

@@ -54,14 +54,14 @@
 -->
 
 
-
-    <input id="currentRebirths" type="text" placeholder="Enter your current rebirths" />
+    <input id="currentStats" type="text" placeholder="Enter your current stats..." />
+    <input id="currentRebirths" type="text" placeholder="Enter your current rebirths..." />
     <input id="desiredRebirths" type="text" placeholder="How many rebirths do you want?" />
     <div class="reminder"><strong>INPUT YOUR CURRENT REBIRTHS FIRST!</strong></div>
 
 
 
-    <div class="result" id="requiredStatsText">You will need X stats to get +X rebirths.</div>
+    <div class="result" id="requiredStatsText">You will need X stats to get +X rebirths.<br>*This is for 1 max rebirth</div>
 
     <!-- <div class="notation-info">
       The max rebirth formula is:
@@ -133,7 +133,7 @@
       }
 
       const neededStats = calculateStatsForRebirths(currentRebirths, desiredGain);
-      $('requiredStatsText').textContent = `You will need ${formatToNotation(neededStats)} stats to get +${desiredGain} rebirth${desiredGain !== 1 ? 's' : ''}.`;
+      $('requiredStatsText').innerHTML = `You will need ${formatToNotation(neededStats)} stats to get +${desiredGain} rebirth${desiredGain !== 1 ? 's' : ''}<br>*This is for 1 max rebirth.`;
     };
 
   </script>

@@ -88,7 +88,8 @@ h1 {
   border-radius: 8px;
   transition: 0.1s;
   overflow: hidden;
-  white-space: nowrap; /* prevent wrapping */
+  white-space: nowrap;
+  /* prevent wrapping */
   /* Make sure child a stays inside the rounded corners */
 }
 
@@ -213,7 +214,7 @@ button:active {
 .reminder {
   font-size: 0.75rem;
   width: 260px;
-  margin-top: 0;
+  margin-top: -16px;
   background-color: rgba(255, 0, 149, 0.3);
   /* semi-transparent red */
   padding: 0.75rem 1rem;
@@ -290,7 +291,7 @@ table tbody tr {
 }
 
 .highlight-gold {
-  background-color: rgba(255,215,0,0.1);
+  background-color: rgba(255, 215, 0, 0.1);
 }
 
 .highlight-red {
@@ -362,7 +363,8 @@ table tbody tr {
 
 .info-box {
   display: flex;
-  flex-direction: column; /* Switch to vertical layout */
+  flex-direction: column;
+  /* Switch to vertical layout */
   padding: 20px;
   background-color: rgba(179, 179, 179, 0.1);
   border-radius: 16px;
@@ -374,8 +376,10 @@ table tbody tr {
 .info-top {
   display: flex;
   flex-direction: column;
-  align-items: center; /* optional for centering */
-  gap: 10px; /* smaller gap between image and drops */
+  align-items: center;
+  /* optional for centering */
+  gap: 10px;
+  /* smaller gap between image and drops */
 }
 
 .info-top img {
@@ -383,9 +387,12 @@ table tbody tr {
   max-width: 20rem;
   border-radius: 8px;
   object-fit: contain;
-  height: auto; /* make sure it keeps aspect ratio */
-  display: block; /* optional: removes inline spacing */
-  margin: 0 auto; /* optional: centers it */
+  height: auto;
+  /* make sure it keeps aspect ratio */
+  display: block;
+  /* optional: removes inline spacing */
+  margin: 0 auto;
+  /* optional: centers it */
 }
 
 /* Bottom row with text */
@@ -403,8 +410,64 @@ table tbody tr {
 
 /* When open, allow it to expand */
 .info-box-wrapper.open {
-  max-height: 1200px; /* Should be high enough to fit the content */
+  max-height: 1200px;
+  /* Should be high enough to fit the content */
   padding: 20px;
+}
+
+.video-wrapper {
+  position: fixed;
+  width: 25rem;
+  height: auto;
+  /* Allow subscribe button + iframe */
+  z-index: 1;
+}
+
+.video-wrapper .subscribe-button {
+  display: none;
+  justify-content: center;
+  margin-bottom: 0rem;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 16rem;
+  border: 0; 
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Positioning like before */
+.top-left {
+  top: 4rem;
+  left: 2rem;
+}
+
+.top-right {
+  top: 4rem;
+  right: 2rem;
+}
+
+.bottom-left {
+  bottom: 2rem;
+  left: 2rem;
+}
+
+.bottom-right {
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.middle-left {
+  top: 52%;
+  left: 2rem;
+  transform: translateY(-50%);
+}
+
+.middle-right {
+  top: 52%;
+  right: 2rem;
+  transform: translateY(-50%);
 }
 
 
@@ -441,10 +504,14 @@ table tbody tr {
   }
 
   .info-bottom {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
   }
 
   .robloxposter {
     display: none !important;
+  }
+
+  .video-wrapper {
+    display: none;
   }
 }

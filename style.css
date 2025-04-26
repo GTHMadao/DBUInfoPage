@@ -471,6 +471,92 @@ table tbody tr {
 }
 
 
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.image-card {
+  width: 12rem;
+  height: 25.2rem; /* A bit taller to fit the button */
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Space out image, description, and button */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+
+/* Only apply circle style to the MAIN image */
+.image-card .main-image {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  margin-bottom: 0.2rem;
+}
+
+.robux-icon {
+  width: 1.3rem;
+  height: 1.4rem;
+  vertical-align: middle;
+  margin-left: 0.1rem;
+  margin-bottom: 0.2rem;
+}
+
+.image-description {
+  text-align: center;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.image-description b {
+  display: block;
+  margin-bottom: 0rem;
+}
+
+.image-price {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.buy-button {
+  margin-top: auto; /* Pushes it up against the bottom content naturally */
+  margin-bottom: 1rem;
+  padding: 0.7rem 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+  background-color: rgb(69, 160, 73,0.7); /* Darker green on hover */
+}
+
+.bottom-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto; /* Pushes it to the bottom */
+}
+
+
+
 @media (max-width: 600px) {
 
   table,

@@ -568,7 +568,7 @@ table tbody tr {
   left: 50%;
   transform: translateX(-50%);
   display: inline-block;
-  z-index: 1000;
+  z-index: 200;
 }
 
 

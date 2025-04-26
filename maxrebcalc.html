@@ -48,20 +48,24 @@
     <h1>MAX REBIRTH<br />CALCULATOR</h1>
     <div class="notation-info" id="notationInfo"></div>
 
-    <input id="currentRebirths" type="text" placeholder="Enter your current rebirths" />
+
     <!-- <input id="rebirthRequirement" type="text" placeholder="Enter your rebirth requirement" />
     <button id="calculateBtn">MAX REBIRTH</button>
     <div class="result" id="resultText">You will gain +X rebirths and will be left with X stats after max rebbing.</div>
 -->
 
     <div style="display: flex; flex-direction: column; align-items: center;">
-      <input id="desiredRebirths" type="text" placeholder="How many rebirths do you want?" />
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <input id="currentRebirths" type="text" placeholder="Enter your current rebirths" />
+        <input id="desiredRebirths" type="text" placeholder="How many rebirths do you want?" />
+      </div>
       <div class="reminder"><strong>INPUT YOUR CURRENT REBIRTHS FIRST!</strong></div>
     </div>
 
+
     <div class="result" id="requiredStatsText">You will need X stats to get +X rebirths.</div>
 
-    <div class="notation-info">
+    <!-- <div class="notation-info">
       The max rebirth formula is:
       <div style="margin-top: 4px; font-family: 'Courier New', monospace;">
         Rebirth Requirement = 20,000,000 × ((R ≤ 90 ? R : 90)
@@ -69,9 +73,8 @@
         + ((R - 600) × (R > 600))<sup>2.43</sup>
         + 1 )
       </div>
-
-
     </div>
+    -->
 
     <div class="notation-info">
       <strong>NOTE:</strong> Max rebirth is capped at 10 for non-gamepass holders, and 25 for gamepass holders.
@@ -110,19 +113,18 @@
         return 20000000 * (part1 + part2 + part3 + 1);
       }
 
-      let totalStats = statRequirement(currentRebirths);
+      let totalStats = 0;
 
-      for (let i = 1; i < desiredGain; i++) {
-        const current = currentRebirths + i;
-        const prev = current - 1;
+      const rebirthLevel = currentRebirths + desiredGain - 1;
+      const baseRequirement = statRequirement(rebirthLevel);
+      console.log(rebirthLevel)
 
-        const required = statRequirement(current) - (statRequirement(prev) / 1.8); // 1.4x rebirth discount remains
-        totalStats += required;
-      }
+      // First rebirth has no multiplier
+      totalStats = baseRequirement*(1.8**(desiredGain-1));
+
 
       return totalStats;
     }
-
     $('desiredRebirths').oninput = () => {
       const desiredGain = parseInt($('desiredRebirths').value);
       const currentRebirths = parseInt($('currentRebirths').value);

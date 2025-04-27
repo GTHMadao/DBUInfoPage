@@ -591,8 +591,9 @@ table tbody tr {
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 0;
-  background-color: rgb(249, 249, 249, .2);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(249, 249, 249, 0.2);
   min-width: 160px;
   border-radius: 8px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -663,11 +664,17 @@ table tbody tr {
 }
 
 .robux-icon {
-  width: 24px;
-  height: 26px;
+  width: 1.5rem;
+  height: 1.6rem;
 }
 
 
+/* Default styles (for desktop) */
+#donations-table th, 
+#donations-table td {
+  font-size: 1rem; /* normal size */
+  padding: 1rem;
+}
 
 
 @media (max-width: 600px) {
@@ -725,26 +732,58 @@ table tbody tr {
   }
 
   .image-card {
-    width: 10rem;
+    width: 9rem;
     /* Adjust width of the image cards for mobile */
-    height: 27rem;
+    height: 20rem;
     /* Adjust height for mobile */
   }
 
   .image-card .main-image {
-    width: 8rem;
+    width: 7rem;
     /* Smaller image size on mobile */
-    height: 8rem;
+    height: 7rem;
   }
 
   .image-description {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   
   .buy-button {
     padding: 0.5rem 0.8rem;
     /* Smaller button on mobile */
     font-size: 0.8rem;
+  }
+
+  .robux-button {
+    font-size: .8rem;
+    max-width: 3rem; /* <-- Force minimum width */
+    gap: 0.1rem;
+    padding: 0.75rem 2rem;
+  }
+
+  .robux-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+
+  #donations-table th, 
+  #donations-table td {
+    font-size: .65rem; /* smaller text on mobile */
+    padding: .5rem;
+  }
+
+  .button-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .6rem;
+  }
+
+  .dropbtn {
+    font-size: .6rem;
+    padding: 10px 1rem;
   }
 
 }

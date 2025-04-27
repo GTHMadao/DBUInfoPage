@@ -113,13 +113,14 @@
     };
 
     let donations = [
-      { username: "No one 😢<br><span style='color: cyan;'>﴾ First Donator ﴿</span>", amount: 1 },
-      { username: "No one 😢", amount: 100 },
-      { username: "No one 😢", amount: 2500 },
-      { username: "No one 😢", amount: 4700 },
+      /*
+      { username: "No one 😢<br><span style='color: cyan;'>﴾ First Donator ﴿</span>", amount: 0 },
+      { username: "No one 😢", amount: 0 },
+      */
+
       {
-        username: "No one 😢<br><span style='color: yellow; font-weight: bold;'>♔</span> <span style='color: yellow; font-weight: bold;'>The King</span> <span style='color: yellow; font-weight: bold;'>♔</span>",
-        amount: 5000
+        username: "TrueDemon_Vegito<br><span style='color: yellow; font-weight: bold;'>♔</span> <span style='color: yellow; font-weight: bold;'>The King</span> <span style='color: yellow; font-weight: bold;'>♔</span><br><span style='color: cyan;'>﴾ First Donator ﴿</span>",
+        amount: 7
       }
     ];
 
@@ -197,25 +198,28 @@
         row.style.backgroundPosition = "center";
 
         const userCell = document.createElement('td');
-        userCell.style.padding = "20px";
+
         userCell.style.textAlign = "center";
         userCell.innerHTML = donation.username;
         userCell.style.textShadow = "0px 0px 20px rgba(0, 0, 0, 1)";
 
         const amountCell = document.createElement('td');
-        amountCell.style.padding = "20px";
+
         amountCell.style.textAlign = "center";
-        amountCell.innerHTML = `${donation.amount} <img src="https://static.wikia.nocookie.net/c3d6b9e0-23a5-44cd-887f-fb83b3a93ede/scale-to-width/755" style="width: 1.5rem; height: 1.6rem ;vertical-align: middle;">`;
+        amountCell.innerHTML = `
+          ${donation.amount}
+          <img src="https://static.wikia.nocookie.net/c3d6b9e0-23a5-44cd-887f-fb83b3a93ede/scale-to-width/755" class="robux-icon">
+        `;
+
         amountCell.style.textShadow = "0px 0px 20px rgba(0, 0, 0, 0.8)";
 
         const rankCell = document.createElement('td');
-        rankCell.style.padding = "20px";
         rankCell.style.textAlign = "center";
         rankCell.textContent = rank;
         rankCell.style.textShadow = "0px 0px 20px rgba(0, 0, 0, 1)";
 
         const placeCell = document.createElement('td');
-        placeCell.style.padding = "20px";
+
         placeCell.style.textAlign = "center";
         placeCell.textContent = `#${index + 1}`;
         placeCell.style.textShadow = "0px 0px 20px rgba(0, 0, 0, 1)";

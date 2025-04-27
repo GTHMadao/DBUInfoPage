@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JD6DWDXVWQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JD6DWDXVWQ');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7376740892139127"
+    crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donations</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Hamburger Button -->
+  <div class="hamburger" id="toggleSidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">MENU</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="maxrebcalc.html">Max Rebirth Calculator</a></li>
+      <li><a href="bosses&npcs.html">Bosses & NPCs</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Maps (WIP)</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Forms & Masteries (WIP)</a></li>
+      <li><a href="gamepasses.html">Gamepasses</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Credits (WIP)</a></li>
+      <li><a href="donations.html">Donations</a></li>
+    </ul>
+  </div>
+
+
+  <div class="container">
+    <h1>DONATIONS</h1>
+    <h2 style="text-align: center; margin-bottom: -10px;">
+      Help support me and keep this page running by sending donations!<br>
+      <span style="font-size: 0.85em; color: #888;">*Leaderboard updates manually — allow some time.</span>
+    </h2>
+
+    <div class="button-container" id="robux-buttons"></div>
+
+
+    <div class="leaderboard" style="margin: 30px auto; max-width: 800px; overflow: hidden;">
+      <table id="donations-table" style="width: 100%; border-collapse: collapse;">
+        <thead id="table-head" style="background-color: rgba(255, 0, 0, 0.2); height: 3.5rem;">
+          <!-- Table head generated dynamically -->
+        </thead>
+        <tbody id="donations-table-body">
+          <!-- Table rows generated dynamically -->
+        </tbody>
+      </table>
+    </div>
+
+
+
+    <div class="footer">
+      Made by Madao<br>
+      <a href="https://www.roblox.com/users/7651428300/profile" target="_blank">Roblox Profile</a><br>
+      <span style="opacity: 0.6;">(send me robux pls 🙏)</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+
+    const robuxOptions = [
+      { amount: 10, link: "https://www.roblox.com/game-pass/1180773505/Donation-10" },
+      { amount: 50, link: "https://www.roblox.com/game-pass/1180929600/Donation-50" },
+      { amount: 100, link: "https://www.roblox.com/game-pass/1180821441/Donation-100" },
+      { amount: 200, link: "https://www.roblox.com/game-pass/1181355381/Donation-200" },
+      { amount: 500, link: "https://www.roblox.com/game-pass/1180755519/Donation-500" }
+    ];
+
+    const container = document.getElementById("robux-buttons");
+
+    robuxOptions.forEach(option => {
+      const a = document.createElement("a");
+      a.href = option.link;
+      a.target = "_blank";
+      a.className = "robux-link";
+
+      const button = document.createElement("button");
+      button.className = "robux-button";
+      button.innerHTML = `
+      ${option.amount}
+      <img src="https://static.wikia.nocookie.net/c3d6b9e0-23a5-44cd-887f-fb83b3a93ede/scale-to-width/755" alt="Robux" class="robux-icon">
+      `;
+
+      a.appendChild(button);
+      container.appendChild(a);
+    });
+
+
+
+    const tableHeaders = {
+      username: "Roblox Username",
+      amount: "Amount",
+      rank: "Rank"
+    };
+
+    let donations = [
+      { username: "No one 😢<br><span style='color: cyan;'>﴾ First Donator ﴿</span>", amount: 1 },
+      { username: "No one 😢", amount: 100 },
+      { username: "No one 😢", amount: 2500 },
+      { username: "No one 😢", amount: 4700 },
+      {
+        username: "No one 😢<br><span style='color: yellow; font-weight: bold;'>♔</span> <span style='color: yellow; font-weight: bold;'>The King</span> <span style='color: yellow; font-weight: bold;'>♔</span>",
+        amount: 5000
+      }
+    ];
+
+    // Generate Table Head
+    function generateTableHead() {
+      const thead = document.getElementById('table-head');
+      thead.innerHTML = "";
+
+      const row = document.createElement('tr');
+
+      for (const key in tableHeaders) {
+        const th = document.createElement('th');
+        th.textContent = tableHeaders[key];
+        th.style.padding = "10px";
+        row.appendChild(th);
+      }
+
+      const placeTh = document.createElement('th'); // <-- CHANGE THIS
+      placeTh.textContent = "Place";                // <-- ADD HEADING TEXT
+      placeTh.style.padding = "10px";
+      row.appendChild(placeTh);
+
+      thead.appendChild(row);
+    }
+
+
+
+    function getRankInfo(amount, donations) {
+      const maxDonation = Math.max(...donations.map(d => d.amount));
+      const isKing = amount === maxDonation;
+
+      if (isKing) {
+        return { rank: "👑 The King 👑", backgroundImage: "url('https://png.pngtree.com/thumb_back/fh260/background/20210910/pngtree-luxury-royal-golden-mandala-background-with-borders-for-invitation-and-wedding-image_856951.jpg')" };
+      }
+
+
+      const rankMapping = [
+        { limit: 4500, rank: "High Roller", backgroundImage: "url('https://static.vecteezy.com/system/resources/previews/036/594/460/non_2x/ai-generated-black-casino-background-with-copy-space-free-photo.jpg')" },
+        { limit: 4000, rank: "Elite VIP", backgroundImage: "url('https://img.freepik.com/free-vector/black-premium-with-luxury-dark-golden-geometric-elements_260559-123.jpg?semt=ais_hybrid&w=740')" },
+        { limit: 3500, rank: "Super VIP", backgroundImage: "url('https://img.freepik.com/free-vector/black-premium-with-luxury-dark-golden-geometric-elements_260559-123.jpg?semt=ais_hybrid&w=740')" },
+        { limit: 3000, rank: "VIP", backgroundImage: "url('https://img.freepik.com/free-vector/black-premium-with-luxury-dark-golden-geometric-elements_260559-123.jpg?semt=ais_hybrid&w=740')" },
+        { limit: 2500, rank: "Diamond Supporter", backgroundImage: "url('https://media.istockphoto.com/id/183954960/vector/abstract-vector-background-for-use-in-design.jpg?s=612x612&w=0&k=20&c=mtpXzL6bg8IxLqNFOKHeHvp4kvLi2wh_QqkDVDW5DR0=')" },
+        { limit: 2000, rank: "Platinum Supporter", backgroundImage: "url('https://t4.ftcdn.net/jpg/06/00/61/29/360_F_600612978_nnab9DFtTbxAeQye98ZoC83cFYpjtEUq.jpg')" },
+        { limit: 1700, rank: "Gold Supporter", backgroundImage: "url('https://t4.ftcdn.net/jpg/09/40/08/37/360_F_940083795_M7ddtHSW4OOSKKmWZMPFZXKoEyh8JaUN.jpg')" },
+        { limit: 1400, rank: "Silver Supporter", backgroundImage: "url('https://img.pikbest.com/wp/202344/texture-silver-metal-gleaming-metallic-folded-and-shiny-abstract-foil-background_9928302.jpg!sw800')" },
+        { limit: 1100, rank: "Backer", backgroundImage: "url('https://userstyles.org/style_screenshots/176901_after.jpeg?r=1745096502')" },
+        { limit: 900, rank: "Patron", backgroundImage: "url('https://userstyles.org/style_screenshots/176901_after.jpeg?r=1745096502')" },
+        { limit: 700, rank: "Sponsor", backgroundImage: "url('https://userstyles.org/style_screenshots/176901_after.jpeg?r=1745096502')" },
+        { limit: 500, rank: "Super Contributor", backgroundImage: "url('https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/optimized/5X/9/e/d/1/9ed117f7a8b92b8157d3e06be006c598d1001faa_2_690x344.png')" },
+        { limit: 300, rank: "Contributor", backgroundImage: "url('https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/optimized/5X/9/e/d/1/9ed117f7a8b92b8157d3e06be006c598d1001faa_2_690x344.png')" },
+        { limit: 100, rank: "Supporter", backgroundImage: "url('https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/optimized/5X/9/e/d/1/9ed117f7a8b92b8157d3e06be006c598d1001faa_2_690x344.png')" },
+        { limit: 0, rank: "Donater", backgroundImage: "url('')" }
+      ];
+
+      // Find the rank and background based on the donation amount
+      const { rank, backgroundImage } = rankMapping.find(r => amount >= r.limit) || { rank: "Supporter", backgroundImage: "url('')" };
+      return { rank, backgroundImage };
+    }
+
+    // Update the Table Body
+    // Update the Table Body
+    function updateTable() {
+      donations.sort((a, b) => b.amount - a.amount);
+
+      const tableBody = document.getElementById('donations-table-body');
+      tableBody.innerHTML = "";
+
+      donations.forEach((donation, index) => {
+        const row = document.createElement('tr');
+
+        const { rank, backgroundImage } = getRankInfo(donation.amount, donations);
+
+        row.style.background = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), ${backgroundImage}`;
+        row.style.backgroundSize = "cover";
+        row.style.backgroundPosition = "center";
+
+        const userCell = document.createElement('td');
+        userCell.style.padding = "20px";
+        userCell.style.textAlign = "center";
+        userCell.innerHTML = donation.username;
+        userCell.style.textShadow = "0px 0px 20px rgba(0, 0, 0, 1)";
+
+        const amountCell = document.createElement('td');
+        amountCell.style.padding = "20px";
+        amountCell.style.textAlign = "center";
+        amountCell.innerHTML = `${donation.amount} <img src="https://static.wikia.nocookie.net/c3d6b9e0-23a5-44cd-887f-fb83b3a93ede/scale-to-width/755" style="width: 1.5rem; height: 1.6rem ;vertical-align: middle;">`;
+        amountCell.style.textShadow = "0px 0px 20px rgba(0, 0, 0, 0.8)";
+
+        const rankCell = document.createElement('td');
+        rankCell.style.padding = "20px";
+        rankCell.style.textAlign = "center";
+        rankCell.textContent = rank;
+        rankCell.style.textShadow = "0px 0px 20px rgba(0, 0, 0, 1)";
+
+        const placeCell = document.createElement('td');
+        placeCell.style.padding = "20px";
+        placeCell.style.textAlign = "center";
+        placeCell.textContent = `#${index + 1}`;
+        placeCell.style.textShadow = "0px 0px 20px rgba(0, 0, 0, 1)";
+
+        row.appendChild(userCell);
+        row.appendChild(amountCell);
+        row.appendChild(rankCell);
+        row.appendChild(placeCell); // <-- ADD THIS
+
+        tableBody.appendChild(row);
+      });
+    }
+
+
+    // Generate table when page loads
+    generateTableHead();
+    updateTable(); // << ADD THIS
+
+  </script>
+</body>
+
+</html>
